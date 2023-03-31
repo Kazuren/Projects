@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm6ano8thstmq"]
+
+[ext_resource type="Script" path="res://src/Core/Components/AirborneComponent/AirborneComponent.cs" id="1_7it3h"]
+
+[node name="AirborneComponent" type="Node2D"]
+script = ExtResource("1_7it3h")

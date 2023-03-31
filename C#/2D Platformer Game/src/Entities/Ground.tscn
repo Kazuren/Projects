@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbd78l8f68d5d"]
+
+[ext_resource type="Script" path="res://addons/ECS/src/Entity.cs" id="1_hcwf1"]
+[ext_resource type="PackedScene" uid="uid://drx7o8wj2cv4u" path="res://src/Core/Components/RenderingComponent/RenderingComponent.tscn" id="2_b0lxi"]
+[ext_resource type="PackedScene" uid="uid://dv72kykwjtmgc" path="res://src/Core/Components/TransformComponent/TransformComponent.tscn" id="3_etyok"]
+[ext_resource type="Texture2D" uid="uid://ldg4xr37rcy1" path="res://icon.svg" id="3_ybx03"]
+[ext_resource type="PackedScene" uid="uid://cbs7nl0c1jups" path="res://src/Core/Components/StaticBodyComponent/StaticBodyComponent.tscn" id="5_pbmr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msu8q"]
+size = Vector2(758, 127)
+
+[node name="Ground" type="Node2D"]
+script = ExtResource("1_hcwf1")
+
+[node name="RenderingComponent" parent="." instance=ExtResource("2_b0lxi")]
+
+[node name="Sprite" parent="RenderingComponent" index="0"]
+scale = Vector2(5.92188, 1)
+texture = ExtResource("3_ybx03")
+
+[node name="TransformComponent" parent="." instance=ExtResource("3_etyok")]
+
+[node name="StaticBodyComponent" parent="." instance=ExtResource("5_pbmr6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyComponent/StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_msu8q")
+
+[editable path="RenderingComponent"]
+[editable path="StaticBodyComponent"]

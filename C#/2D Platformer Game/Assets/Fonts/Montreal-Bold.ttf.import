@@ -1,0 +1,38 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://ca3both0blqpk"
+path="res://.godot/imported/Montreal-Bold.ttf-54d7cf67cbccd8b31fa5ebc7f8cd961b.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/Montreal-Bold.ttf"
+dest_files=["res://.godot/imported/Montreal-Bold.ttf-54d7cf67cbccd8b31fa5ebc7f8cd961b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=2
+generate_mipmaps=true
+multichannel_signed_distance_field=true
+msdf_pixel_range=16
+msdf_size=250
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}

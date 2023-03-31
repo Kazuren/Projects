@@ -1,0 +1,113 @@
+[gd_scene load_steps=27 format=3 uid="uid://cn1e3qov3heye"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_ddme5"]
+[ext_resource type="Script" path="res://src/Core/Systems/TransformSyncSystem.cs" id="3_qk1gl"]
+[ext_resource type="Script" path="res://addons/ECS/src/World.cs" id="3_y3t2q"]
+[ext_resource type="PackedScene" uid="uid://oidhc05bfh6u" path="res://src/Entities/Player.tscn" id="4_1xkrh"]
+[ext_resource type="Script" path="res://src/Core/Systems/CharacterBodyForceSystem.cs" id="4_7egvv"]
+[ext_resource type="Script" path="res://src/Core/Systems/StaticBodyInitializerSystem.cs" id="4_bj1jv"]
+[ext_resource type="Script" path="res://src/Core/Systems/AnimationSystem.cs" id="4_n1a72"]
+[ext_resource type="Script" path="res://src/Core/Systems/AirborneStateSystem.cs" id="4_rpmrp"]
+[ext_resource type="Script" path="res://src/Core/Systems/InputToCommandSystem.cs" id="5_s5ib1"]
+[ext_resource type="Script" path="res://src/Core/Systems/CameraMoveSystem.cs" id="6_ogynp"]
+[ext_resource type="Script" path="res://src/Core/Systems/JumpingCapabilitySystem.cs" id="6_qiv6l"]
+[ext_resource type="Script" path="res://src/Core/Systems/InteractableMoveSystem.cs" id="8_hhxho"]
+[ext_resource type="Script" path="res://src/Core/Systems/AirborneSystem.cs" id="9_bioby"]
+[ext_resource type="Script" path="res://src/Core/Systems/InteractingCapabilityMoveSystem.cs" id="9_l8jse"]
+[ext_resource type="Script" path="res://src/Core/Systems/CharacterBodyInitializerSystem.cs" id="9_tbjh3"]
+[ext_resource type="Script" path="res://src/Core/Systems/GravitySystem.cs" id="10_fc37a"]
+[ext_resource type="Script" path="res://src/Core/Systems/PlayerInputSystem.cs" id="10_o3tyj"]
+[ext_resource type="Script" path="res://src/Core/Systems/StopJumpingSystem.cs" id="11_5steu"]
+[ext_resource type="Script" path="res://src/Core/Systems/RenderingSystem.cs" id="11_7flfe"]
+[ext_resource type="Script" path="res://src/Core/Systems/WalkSystem.cs" id="12_7dkx4"]
+[ext_resource type="Script" path="res://src/Core/Systems/MoveSystem.cs" id="13_ja18u"]
+[ext_resource type="Script" path="res://src/Core/Systems/CoyoteSystem.cs" id="15_hloks"]
+[ext_resource type="PackedScene" uid="uid://cbd78l8f68d5d" path="res://src/Entities/Ground.tscn" id="15_p2ejs"]
+[ext_resource type="Script" path="res://src/Core/Systems/JumpSystem.cs" id="17_70e1h"]
+[ext_resource type="Script" path="res://src/Core/Systems/JumpingSystem.cs" id="18_63mp4"]
+[ext_resource type="PackedScene" uid="uid://vnf8iidy70ke" path="res://DebugMenu.tscn" id="21_b7c8y"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ddme5")
+
+[node name="World" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_y3t2q")
+
+[node name="Systems" type="Node" parent="World"]
+
+[node name="TransformSyncSystem" type="Node" parent="World/Systems"]
+script = ExtResource("3_qk1gl")
+
+[node name="AirborneStateSystem" type="Node" parent="World/Systems"]
+script = ExtResource("4_rpmrp")
+
+[node name="StaticBodyInitializerSystem" type="Node" parent="World/Systems"]
+script = ExtResource("4_bj1jv")
+
+[node name="CharacterBodyInitializerSystem" type="Node" parent="World/Systems"]
+script = ExtResource("9_tbjh3")
+
+[node name="JumpingCapabilitySystem" type="Node" parent="World/Systems"]
+script = ExtResource("6_qiv6l")
+
+[node name="PlayerInputSystem" type="Node" parent="World/Systems"]
+script = ExtResource("10_o3tyj")
+
+[node name="InputToCommandSystem" type="Node" parent="World/Systems"]
+script = ExtResource("5_s5ib1")
+
+[node name="MoveSystem" type="Node" parent="World/Systems"]
+script = ExtResource("13_ja18u")
+
+[node name="AirborneSystem" type="Node" parent="World/Systems"]
+script = ExtResource("9_bioby")
+
+[node name="WalkSystem" type="Node" parent="World/Systems"]
+script = ExtResource("12_7dkx4")
+
+[node name="JumpSystem" type="Node" parent="World/Systems"]
+script = ExtResource("17_70e1h")
+
+[node name="StopJumpingSystem" type="Node" parent="World/Systems"]
+script = ExtResource("11_5steu")
+
+[node name="GravitySystem" type="Node" parent="World/Systems"]
+script = ExtResource("10_fc37a")
+
+[node name="CoyoteSystem" type="Node" parent="World/Systems"]
+script = ExtResource("15_hloks")
+
+[node name="JumpingSystem" type="Node" parent="World/Systems"]
+script = ExtResource("18_63mp4")
+
+[node name="CharacterBodyForceSystem" type="Node" parent="World/Systems"]
+script = ExtResource("4_7egvv")
+
+[node name="InteractingCapabilityMoveSystem" type="Node" parent="World/Systems"]
+script = ExtResource("9_l8jse")
+
+[node name="InteractableMoveSystem" type="Node" parent="World/Systems"]
+script = ExtResource("8_hhxho")
+
+[node name="AnimationSystem" type="Node" parent="World/Systems"]
+script = ExtResource("4_n1a72")
+
+[node name="CameraMoveSystem" type="Node" parent="World/Systems"]
+script = ExtResource("6_ogynp")
+
+[node name="RenderingSystem" type="Node" parent="World/Systems"]
+script = ExtResource("11_7flfe")
+
+[node name="Entities" type="Node" parent="World"]
+
+[node name="Player" parent="World/Entities" instance=ExtResource("4_1xkrh")]
+position = Vector2(626, -4)
+
+[node name="Ground" parent="World/Entities" instance=ExtResource("15_p2ejs")]
+position = Vector2(599, 684)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DebugMenu" parent="CanvasLayer" instance=ExtResource("21_b7c8y")]
+unique_name_in_owner = true

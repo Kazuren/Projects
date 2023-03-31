@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbs7nl0c1jups"]
+
+[ext_resource type="Script" path="res://src/Core/Components/StaticBodyComponent/StaticBodyComponent.cs" id="1_4cppn"]
+
+[node name="StaticBodyComponent" type="Node2D"]
+script = ExtResource("1_4cppn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+unique_name_in_owner = true

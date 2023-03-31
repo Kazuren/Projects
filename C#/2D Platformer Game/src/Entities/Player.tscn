@@ -1,0 +1,73 @@
+[gd_scene load_steps=17 format=3 uid="uid://oidhc05bfh6u"]
+
+[ext_resource type="Script" path="res://addons/ECS/src/Entity.cs" id="1_pne0u"]
+[ext_resource type="PackedScene" uid="uid://def4ijeqvnsw" path="res://src/Core/Components/PlayerInputComponent/PlayerInputComponent.tscn" id="2_exyt6"]
+[ext_resource type="PackedScene" uid="uid://drx7o8wj2cv4u" path="res://src/Core/Components/RenderingComponent/RenderingComponent.tscn" id="3_l38ij"]
+[ext_resource type="PackedScene" uid="uid://chwuli6bd1aby" path="res://src/Core/Components/TitleComponent/TitleComponent.tscn" id="4_eblxr"]
+[ext_resource type="Texture2D" uid="uid://ldg4xr37rcy1" path="res://icon.svg" id="5_6i0pp"]
+[ext_resource type="PackedScene" uid="uid://dv72kykwjtmgc" path="res://src/Core/Components/TransformComponent/TransformComponent.tscn" id="5_kq3v8"]
+[ext_resource type="PackedScene" uid="uid://s3n2wgrvn60m" path="res://src/Core/Components/VelocityComponent/VelocityComponent.tscn" id="6_3w2pb"]
+[ext_resource type="PackedScene" uid="uid://mjjynsnworf3" path="res://src/Core/Components/SpeedComponent/SpeedComponent.tscn" id="7_vlk4x"]
+[ext_resource type="PackedScene" uid="uid://chitw4n0hjhch" path="res://src/Core/Components/CommandListenerComponent/CommandListenerComponent.tscn" id="8_h1ypd"]
+[ext_resource type="PackedScene" uid="uid://bkbjrpm36tjj0" path="res://src/Core/Components/CharacterBodyComponent/CharacterBodyComponent.tscn" id="9_txcj0"]
+[ext_resource type="PackedScene" uid="uid://dkyjpaonw0idr" path="res://src/Core/Components/CameraComponent/CameraComponent.tscn" id="10_rcref"]
+[ext_resource type="PackedScene" uid="uid://d35bpbiawxaod" path="res://src/Core/Components/AnimationComponent/AnimationComponent.tscn" id="11_kso1q"]
+[ext_resource type="PackedScene" uid="uid://dq4ndentiqaam" path="res://src/Core/Components/AirMovementDescriberComponent/AirMovementDescriberComponent.tscn" id="13_h34cq"]
+[ext_resource type="PackedScene" uid="uid://d1vo0d4yorgya" path="res://src/Core/Components/GravityComponent/GravityComponent.tscn" id="14_tuy4e"]
+[ext_resource type="PackedScene" uid="uid://ctgcltcn51fx4" path="res://src/Core/Components/JumpingCapabilityComponent/JumpingCapabilityComponent.tscn" id="15_2av2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl3oo"]
+size = Vector2(96, 128)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_pne0u")
+metadata/_edit_group_ = true
+
+[node name="TitleComponent" parent="." instance=ExtResource("4_eblxr")]
+Title = "Bob"
+
+[node name="PlayerInputComponent" parent="." instance=ExtResource("2_exyt6")]
+
+[node name="RenderingComponent" parent="." instance=ExtResource("3_l38ij")]
+
+[node name="Sprite" parent="RenderingComponent" index="0"]
+position = Vector2(1.90735e-06, 9.53674e-07)
+scale = Vector2(0.75, 1)
+texture = ExtResource("5_6i0pp")
+
+[node name="TransformComponent" parent="." instance=ExtResource("5_kq3v8")]
+
+[node name="VelocityComponent" parent="." instance=ExtResource("6_3w2pb")]
+
+[node name="SpeedComponent" parent="." instance=ExtResource("7_vlk4x")]
+Speed = 260.0
+
+[node name="CommandListenerComponent" parent="." instance=ExtResource("8_h1ypd")]
+
+[node name="CharacterBodyComponent" parent="." instance=ExtResource("9_txcj0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBodyComponent/CharacterBody2D" index="0"]
+shape = SubResource("RectangleShape2D_dl3oo")
+
+[node name="CameraComponent" parent="." instance=ExtResource("10_rcref")]
+
+[node name="AnimationComponent" parent="." instance=ExtResource("11_kso1q")]
+
+[node name="AirMovementDescriberComponent" parent="." node_paths=PackedStringArray("GravityComponent", "JumpingCapabilityComponent") instance=ExtResource("13_h34cq")]
+GravityComponent = NodePath("../GravityComponent")
+JumpingCapabilityComponent = NodePath("../JumpingCapabilityComponent")
+MaxJumpHeight = 128.0
+MinJumpHeight = 64.0
+JumpTimeToPeak = 0.4
+JumpTimeToDescent = 0.6
+JumpBuffer = 0.07
+StallTime = 0.07
+CoyoteTime = 0.05
+
+[node name="GravityComponent" parent="." instance=ExtResource("14_tuy4e")]
+
+[node name="JumpingCapabilityComponent" parent="." instance=ExtResource("15_2av2h")]
+
+[editable path="RenderingComponent"]
+[editable path="CharacterBodyComponent"]
+[editable path="AnimationComponent"]

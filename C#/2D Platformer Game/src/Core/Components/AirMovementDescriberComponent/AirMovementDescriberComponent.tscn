@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq4ndentiqaam"]
+
+[ext_resource type="Script" path="res://src/Core/Components/AirMovementDescriberComponent/AirMovementDescriberComponent.cs" id="1_kjd1r"]
+
+[node name="AirMovementDescriberComponent" type="Node2D"]
+script = ExtResource("1_kjd1r")

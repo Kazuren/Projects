@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://vnf8iidy70ke"]
+
+[ext_resource type="Script" path="res://DebugMenu.cs" id="1_u8roe"]
+[ext_resource type="Theme" uid="uid://6inct8jld8a4" path="res://Assets/Theme.tres" id="2_lo2b7"]
+
+[node name="DebugMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_u8roe")
+
+[node name="Tree" type="Tree" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_lo2b7")
+columns = 3
+hide_root = true
