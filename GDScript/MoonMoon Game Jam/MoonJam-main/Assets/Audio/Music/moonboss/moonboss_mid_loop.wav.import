@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moonboss_mid_loop.wav-035b86e3b11b84e918420b678b3f4033.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/moonboss/moonboss_mid_loop.wav"
+dest_files=[ "res://.import/moonboss_mid_loop.wav-035b86e3b11b84e918420b678b3f4033.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

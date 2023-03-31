@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/Nodes/Enemy/Flappers/Flappers.gd" type="Script" id=1]
+[ext_resource path="res://src/Nodes/Enemy/Flappers/flappers.png" type="Texture" id=2]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hurtbox/Hurtbox.gd" type="Script" id=3]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Shaders/white.shader" type="Shader" id=5]
+[ext_resource path="res://Assets/Audio/SFX/enemyshoot.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/Nodes/Enemy/Flappers/FLAPPERS2.png" type="Texture" id=8]
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/active = false
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36, 36 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 36, 36 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 36, 36 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Flap"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 8 ) ]
+}
+
+[node name="Flappers" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 144
+script = ExtResource( 1 )
+shoot_sfx = ExtResource( 6 )
+gravity = 0.0
+disable_physics = true
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -5, 12 )
+shape = SubResource( 1 )
+
+[node name="AI" type="Node2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -5, 12 )
+shape = SubResource( 2 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -5, 12 )
+shape = SubResource( 3 )
+
+[node name="DeathEffectPosition" type="Position2D" parent="."]
+
+[node name="SpawnPointPosition" type="Position2D" parent="."]
+position = Vector2( -5, 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 4 )
+anims/RESET = SubResource( 6 )
+
+[node name="FlappersAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flap = SubResource( 7 )

@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"character": "character-1658086790.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ahoy me lad! Here ye may organize your booty."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"res://src/Interface/InventoryMenu/InventoryMenu.tscn"
+				],
+				"method_name": "append_menu",
+				"target_node_path": "/root/Interface"
+			},
+			"event_id": "dialogic_042"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1657831356.json",
+		"name": "Inventory"
+	}
+}

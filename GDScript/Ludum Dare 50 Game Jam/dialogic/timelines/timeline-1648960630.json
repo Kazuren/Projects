@@ -1,0 +1,86 @@
+{
+	"events": [
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Glad to see that you've made it here okay."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "How is the research coming?? Are things looking good??"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes, yes, I’m coming up with some promising results for a possible serum. Just be glad I can help you work on this instead of you getting milked dry financially by the healthcare system had it not been considered terminal by doctors."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ha. Ha. Real funny."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Lighten up a bit won’t ya? Stressing yourself so much isn’t going to help your condition at all."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fine. So are we gonna get in the machine?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes, it should be working now. Go ahead and get in."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I’ll press the button to reset very shortly. Just remain calm and breathe."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1.0"
+				],
+				"method_name": "fade_in",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "fade_out",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"change_scene": "res://src/Scenes/Home2/Home2.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648960630.json",
+		"name": "Lab2"
+	}
+}

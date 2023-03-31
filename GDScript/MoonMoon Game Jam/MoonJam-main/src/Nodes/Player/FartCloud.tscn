@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Nodes/Player/FartCloud.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/UI-Circle.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.792157, 0.541176, 0.0156863, 1, 0.631373, 0.631373, 0.666667, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
+flag_disable_z = true
+gravity = Vector3( 0, -300, 0 )
+initial_velocity = 200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -200.0
+scale = 0.5
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 7 )
+
+[node name="FartCloud" type="Particles2D"]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.7
+randomness = 0.2
+visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
+local_coords = false
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

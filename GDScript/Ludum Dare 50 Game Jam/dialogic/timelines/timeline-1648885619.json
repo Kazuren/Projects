@@ -1,0 +1,147 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "... and that's what the situation looks as of now."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This truly is a unique case. I've never seen a case of the immune system eating itself away like this before, but it doesn't look terminal like what your doctors have said."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[Scientist], that's why I've come to you about this. No one else knows of my condition, not even my family. I need you to figure some way to cure this curse. I can't afford [Daughter] growing up without a father."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well [Player], you've come to the right place. While those doctors are puzzled about your condition, I’m no ordinary scientist and this is no ordinary lab. I think I can figure out a cure, but there is one issue."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "And what is that?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I simply don't have enough time, not before your body consumes itself first."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't look so glum. We still might have a way."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There is!? What is it!?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now don't get too hopeful just yet. This is a major gamble, one that involves putting my own tail on the line."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Please tell me, [Scientist]. I'll do whatever I can to make this happen."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, I am still indebted to you for that time you saved my tail. You see this machine here? It's a prototype of a time machine, a culmination of all current underground research on time travel, one that can reset everything back to a certain point in the past, except for those in the capsule."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Those in the capsule will physically reset to that point of time, but their mind will not. As such, we will reset time as much as we need so I can figure out a cure while we keep your body from destroying itself."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Your body only has about [color=#73bed3]two days[/color] left before you’re beyond the point of saving. I’ll need at least [yellow]four days[/color] before I can engineer a fix to your special case of sepsis."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Is this safe? What about the research on the cure that you worked on?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, we don't have a choice. This is our only option for me to have enough time to figure out a cure. As for the research, I'll bring it with me in the capsule and it'll go back in time with me."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'll do it. [shake rate=4 level=5]Whatever it takes.[/shake]"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good. Come back tomorrow. I need to get this machine up and running first. Consider taking a vacation from that stressful government intelligence job until this gets resolved. I'll see you then, [Player]."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"2.0",
+					"The next day..."
+				],
+				"method_name": "fade_in",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "fade_out",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"change_scene": "res://src/Scenes/Home1/Home1.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648885619.json",
+		"name": "Lab1"
+	}
+}

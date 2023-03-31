@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/playerGodRay.wav-56b088e67f0b27e7cfd6c53f24348105.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/playerGodRay.wav"
+dest_files=[ "res://.import/playerGodRay.wav-56b088e67f0b27e7cfd6c53f24348105.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

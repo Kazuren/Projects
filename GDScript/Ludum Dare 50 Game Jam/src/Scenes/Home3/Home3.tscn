@@ -1,0 +1,218 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/Scenes/Home3/Home3.gd" type="Script" id=1]
+[ext_resource path="res://Assets/TILESET.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Backgrounds/Home/bg.png" type="Texture" id=3]
+[ext_resource path="res://src/Game/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Game/NPC/Npc.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Backgrounds/Home/walls.png" type="Texture" id=6]
+[ext_resource path="res://Assets/arrowpointer.png" type="Texture" id=7]
+[ext_resource path="res://src/Game/SceneChanger/SceneChanger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Scenes/Country3/Countryside3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Game/DialogueArea/DialogueArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Backgrounds/Home/house.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Characters/Daughter/daughteridle.png" type="Texture" id=12]
+[ext_resource path="res://src/Game/DialogueCircle/DialogueCircle.tscn" type="PackedScene" id=13]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.2036
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 11.1803
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 3.0
+
+[node name="Home3" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 79, 6, 0, 65536, 5, 0, 65615, 6, 0, 131072, 5, 0, 131151, 6, 0, 196608, 5, 0, 196687, 6, 0, 262144, 5, 0, 262223, 6, 0, 327680, 5, 0, 327759, 6, 0, 393216, 5, 0, 393295, 6, 0, 458752, 5, 0, 458831, 6, 0, 524288, 5, 0, 524367, 6, 0, 589824, 5, 0, 589903, 6, 0, 655360, 5, 0, 655439, 6, 0, 720896, 5, 0, 720975, 6, 0, 786432, 5, 0, 786511, 6, 0, 851968, 5, 0, 852047, 6, 0, 917504, 5, 0, 917583, 6, 0, 983040, 5, 0, 1048576, 5, 0, 1114112, 5, 0, 1179648, 5, 0, 1245184, 5, 0, 1310720, 5, 0, 1376256, 13, 0, 1376257, 13, 0, 1376258, 13, 0, 1376259, 13, 0, 1376260, 13, 0, 1376261, 13, 0, 1376262, 13, 0, 1376263, 13, 0, 1376264, 13, 0, 1376265, 13, 0, 1376266, 13, 0, 1376267, 13, 0, 1376268, 13, 0, 1376269, 13, 0, 1376270, 13, 0, 1376271, 13, 0, 1376272, 13, 0, 1376273, 13, 0, 1376274, 13, 0, 1376275, 13, 0, 1376276, 13, 0, 1376277, 13, 0, 1376278, 13, 0, 1376279, 13, 0, 1376280, 13, 0, 1376281, 13, 0, 1376282, 13, 0, 1376283, 13, 0, 1376284, 13, 0, 1376285, 13, 0, 1376286, 13, 0, 1376287, 13, 0, 1376288, 13, 0, 1376289, 13, 0, 1376290, 13, 0, 1376291, 13, 0, 1376292, 13, 0, 1376293, 13, 0, 1376294, 13, 0, 1376295, 13, 0, 1376296, 13, 0, 1376297, 13, 0, 1376298, 13, 0, 1376299, 13, 0, 1376300, 13, 0, 1376301, 13, 0, 1376302, 13, 0, 1376303, 13, 0, 1376304, 13, 0, 1376305, 13, 0, 1376306, 13, 0, 1376307, 13, 0, 1376308, 13, 0, 1376309, 13, 0, 1376310, 13, 0, 1376311, 13, 0, 1376312, 13, 0, 1376313, 13, 0, 1376314, 13, 0, 1376315, 13, 0, 1376316, 13, 0, 1376317, 13, 0, 1376318, 13, 0, 1376319, 13, 0, 1376320, 13, 0, 1376321, 13, 0, 1376322, 13, 0, 1376323, 13, 0, 1376324, 13, 0, 1376325, 13, 0, 1376326, 13, 0, 1376327, 13, 0, 1376328, 13, 0, 1376329, 13, 0, 1376330, 13, 0, 1376331, 13, 0, 1376332, 13, 0, 1376333, 13, 0, 1376334, 13, 0, 1376335, 13, 0 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DialogueArea" parent="." instance=ExtResource( 10 )]
+position = Vector2( 517, 296 )
+dialog_timeline = "Home3-Daughter"
+
+[node name="Daughter" parent="." instance=ExtResource( 5 )]
+position = Vector2( 590, 312 )
+texture = ExtResource( 12 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 44, 304 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_right = 0.1
+editor_draw_drag_margin = true
+
+[node name="SceneChanger" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1296, 304 )
+scene_to_load = ExtResource( 9 )
+
+[node name="Arrowpointer" type="Sprite" parent="."]
+position = Vector2( 1246, 304 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+
+[node name="Bg" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 346, 180 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Base" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 11 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Base" type="Sprite" parent="ParallaxBackground2/ParallaxLayer3"]
+texture = ExtResource( 6 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DaughterExtraDialogue" parent="." instance=ExtResource( 13 )]
+position = Vector2( 591, 316 )
+dialog_timeline = "Home3-DaughterExtra"
+once = false
+
+[node name="CollisionShape2D" parent="DaughterExtraDialogue" index="0"]
+shape = SubResource( 1 )
+
+[node name="BedInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 15, 302 )
+dialog_timeline = "BedInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="BedInteraction" index="0"]
+shape = SubResource( 2 )
+
+[node name="InputKey" parent="BedInteraction" index="1"]
+margin_top = -24.0
+margin_bottom = -8.0
+
+[node name="EldenRingInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 277, 267 )
+dialog_timeline = "EldenRingInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="EldenRingInteraction" index="0"]
+shape = SubResource( 3 )
+
+[node name="InputKey" parent="EldenRingInteraction" index="1"]
+margin_top = -21.0
+margin_bottom = -5.0
+
+[node name="PomerianInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 415, 262 )
+dialog_timeline = "PomerianInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="PomerianInteraction" index="0"]
+shape = SubResource( 4 )
+
+[node name="InputKey" parent="PomerianInteraction" index="1"]
+margin_top = -53.0
+margin_bottom = -37.0
+
+[node name="FridgeInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 819, 270 )
+dialog_timeline = "FridgeInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="FridgeInteraction" index="0"]
+shape = SubResource( 5 )
+
+[node name="PhoneInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 962, 306 )
+dialog_timeline = "PhoneInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="PhoneInteraction" index="0"]
+shape = SubResource( 6 )
+
+[node name="InputKey" parent="PhoneInteraction" index="1"]
+margin_top = -23.0
+margin_bottom = -7.0
+
+[node name="TVInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1043, 276 )
+dialog_timeline = "TVInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="TVInteraction" index="0"]
+shape = SubResource( 7 )
+
+[node name="InputKey" parent="TVInteraction" index="1"]
+margin_top = -35.0
+margin_bottom = -19.0
+
+[node name="LampInteraction" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1108, 284 )
+dialog_timeline = "LampInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="LampInteraction" index="0"]
+shape = SubResource( 8 )
+
+[node name="InputKey" parent="LampInteraction" index="1"]
+margin_top = -39.0
+margin_bottom = -23.0
+
+[editable path="DaughterExtraDialogue"]
+[editable path="BedInteraction"]
+[editable path="EldenRingInteraction"]
+[editable path="PomerianInteraction"]
+[editable path="FridgeInteraction"]
+[editable path="PhoneInteraction"]
+[editable path="TVInteraction"]
+[editable path="LampInteraction"]

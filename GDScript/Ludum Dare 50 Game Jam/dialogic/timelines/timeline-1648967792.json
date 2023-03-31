@@ -1,0 +1,98 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No, no, no fucking way…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He’s dead… Looks like he was mangled to death…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Please tell me his research notes are still here."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s all shredded and damaged… What do I do!?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maybe I could reset time and work on this myself, even if it takes ten years of resetting. To hell with this world anyways! What’s the point of this world without my family!?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The machine is busted too… I can’t fucking believe this. Please at least let this gun send me to an alternate universe where everyone is still alive. Maybe I can get a cure there. At least let me be able to say goodbye to my family so I can pass in peace."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The gun is broken… I… I-I… I’m sorry… I’m so sorry [Wife] and [Daughter]… This is all my fault…"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"5.0"
+				],
+				"method_name": "fade_in",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 5
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "fade_out",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"change_scene": "res://src/Interface/Menus/ThanksForPlaying/ThanksForPlaying.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648967792.json",
+		"name": "LabLastOne"
+	}
+}

@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Assets/Art/moon2pir.png" type="Texture" id=2]
+[ext_resource path="res://src/Scenes/Level.gd" type="Script" id=3]
+[ext_resource path="res://src/Nodes/DialogueArea/DialogueArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Art/Corpa.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/moon2E.png" type="Texture" id=6]
+[ext_resource path="res://src/Nodes/Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Audio/Music/town.wav" type="AudioStream" id=8]
+[ext_resource path="res://src/Tileset/tileset.tres" type="TileSet" id=9]
+[ext_resource path="res://src/Scenes/House/forrestscene.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32, 604.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 627.5 )
+
+[node name="House" type="Node2D"]
+script = ExtResource( 3 )
+music = ExtResource( 8 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="LevelBarrier" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarrier"]
+position = Vector2( -32, 476.5 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBarrier"]
+position = Vector2( 1952, 451.5 )
+shape = SubResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_y_sort = true
+show_collision = true
+centered_textures = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, 2, 0, 983058, 2, 0, 983059, 2, 0, 983060, 2, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0, 983067, 2, 0, 983068, 2, 0, 983069, 2, 0, 1048576, 2, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 2, 0 )
+
+[node name="Eddie" type="Sprite" parent="."]
+position = Vector2( 584, 904 )
+texture = ExtResource( 6 )
+
+[node name="DialogueArea" parent="Eddie" instance=ExtResource( 4 )]
+dialog_timeline = "EddieTalk"
+once = false
+
+[node name="ShopKeeper" type="Sprite" parent="."]
+position = Vector2( 952, 904 )
+texture = ExtResource( 5 )
+
+[node name="DialogueArea" parent="ShopKeeper" instance=ExtResource( 4 )]
+dialog_timeline = "Shop"
+once = false
+
+[node name="InventoryKeeper" type="Sprite" parent="."]
+position = Vector2( 1440, 904 )
+texture = ExtResource( 2 )
+
+[node name="DialogueArea" parent="InventoryKeeper" instance=ExtResource( 4 )]
+dialog_timeline = "Inventory"
+once = false
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 152, 896 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 0, -27 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.05
+drag_margin_right = 0.05
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Bullets" type="Node" parent="."]

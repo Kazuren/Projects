@@ -1,0 +1,767 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Assets/Shaders/godray.shader" type="Shader" id=1]
+[ext_resource path="res://src/Nodes/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://src/Nodes/StateMachine/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://src/Nodes/Player/States/Walk.gd" type="Script" id=4]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hurtbox/Hurtbox.gd" type="Script" id=5]
+[ext_resource path="res://src/Nodes/Player/States/Air.gd" type="Script" id=6]
+[ext_resource path="res://src/Nodes/Player/States/Idle.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Shaders/white.shader" type="Shader" id=8]
+[ext_resource path="res://src/Nodes/Player/States/Parry.gd" type="Script" id=9]
+[ext_resource path="res://src/Nodes/Player/States/Death.gd" type="Script" id=10]
+[ext_resource path="res://src/Nodes/Player/States/SpecialAbility.gd" type="Script" id=11]
+[ext_resource path="res://src/Nodes/Player/Borpa.png" type="Texture" id=12]
+[ext_resource path="res://src/Nodes/Player/States/Dash.gd" type="Script" id=13]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Shaders/energybeam.shader" type="Shader" id=15]
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 1 )
+shader_param/angle = -0.3
+shader_param/position = -0.05
+shader_param/spread = 0.5
+shader_param/cutoff = 0.1
+shader_param/falloff = 0.2
+shader_param/edge_fade = 0.15
+shader_param/speed = 1.0
+shader_param/ray1_density = 16.0
+shader_param/ray2_density = 60.0
+shader_param/ray2_intensity = 0.3
+shader_param/color = Color( 1, 0.901961, 0.65098, 1 )
+shader_param/hdr = true
+shader_param/seed = 5.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 52.0
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/active = false
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 29, 16.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10.5, 10 )
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 5.68833
+height = 28.3171
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 41, 1 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 25, 16 )
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 2.0
+
+[sub_resource type="Animation" id=17]
+resource_name = "EnergyBeam"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GodRay:material:shader_param/ray2_intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ 0.0, 0.5, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GodRay:material:shader_param/color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.901961, 0.65098, 0 ), Color( 1, 0.901961, 0.65098, 0.498039 ), Color( 1, 0.901961, 0.65098, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GodRay:material:shader_param/cutoff")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ 0.35, 0.1, 0.35 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GodRay:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/thickness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.006, 0.1, 0.006 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/outline_thickness")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.03, 0.1, 0.03 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/glow")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/progress")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("EnergyBeamArea:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EnergyBeamArea:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 1, 1 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GodRay:material:shader_param/ray2_intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GodRay:material:shader_param/color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.901961, 0.65098, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GodRay:material:shader_param/speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GodRay:material:shader_param/cutoff")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GodRay:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("EnergyBeamArea/ShaderRect:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/thickness")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/outline_thickness")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/glow")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EnergyBeamArea/ShaderRect:material:shader_param/progress")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("EnergyBeamArea:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "EnergyBeam"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GodRay:material:shader_param/ray2_intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ 0.0, 0.5, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GodRay:material:shader_param/color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.901961, 0.65098, 0 ), Color( 1, 0.901961, 0.65098, 0.498039 ), Color( 1, 0.901961, 0.65098, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GodRay:material:shader_param/cutoff")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 3, 1 ),
+"update": 0,
+"values": [ 0.35, 0.1, 0.35 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GodRay:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "invulnerable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1e+06, 1e+06, 1e+06, 1e+06 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.498039 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 48, 1080 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = ExtResource( 15 )
+shader_param/beams = 2
+shader_param/energy = 5.0
+shader_param/roughness = 5
+shader_param/frequency = 10
+shader_param/speed = 1.0
+shader_param/thickness = 0.1
+shader_param/outline_thickness = 0.1
+shader_param/beam_difference = 0.0
+shader_param/glow = 1.0
+shader_param/outline_glow = 0.0
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/outline_color = Color( 0.85098, 0.466667, 0.0235294, 1 )
+shader_param/progress = 1.0
+shader_param/y_offset = 0.0
+shader_param/fixed_edge_size = 0.05
+shader_param/noise_scale = Vector2( 1, 1 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 64
+collision_mask = 176
+collision/safe_margin = 0.001
+script = ExtResource( 2 )
+max_dash_speed = 960
+min_dash_speed = 576
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node/FartBarPosition")
+update_rotation = false
+update_scale = false
+
+[node name="Node" type="Node" parent="."]
+
+[node name="FartBarPosition" type="Node2D" parent="Node"]
+
+[node name="FartBar" type="TextureProgress" parent="Node/FartBarPosition"]
+margin_left = -37.0
+margin_right = 38.0
+margin_bottom = 4.0
+rect_min_size = Vector2( 75, 4 )
+value = 50.0
+texture_under = SubResource( 16 )
+texture_progress = SubResource( 16 )
+tint_under = Color( 0, 0, 0, 0.498039 )
+tint_progress = Color( 0.792157, 0.541176, 0.0156863, 1 )
+nine_patch_stretch = true
+
+[node name="GodRay" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 14 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1920.0
+margin_top = -1080.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="ParryCooldown" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="ParryTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ParryArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryArea"]
+position = Vector2( 5, -16 )
+shape = SubResource( 12 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -41, 0 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 144
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 41, 0 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 144
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="FartPosition" type="Position2D" parent="Pivot"]
+position = Vector2( -39, -2 )
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+material = SubResource( 7 )
+position = Vector2( 5, -16 )
+texture = ExtResource( 12 )
+offset = Vector2( 9, -12.5 )
+
+[node name="Center" type="Position2D" parent="Pivot"]
+position = Vector2( 5, -16 )
+
+[node name="Hurtbox" type="Area2D" parent="Pivot"]
+collision_mask = 0
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+position = Vector2( 5, -16.5 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+position = Vector2( 23.5, -43 )
+shape = SubResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Hurtbox"]
+visible = false
+position = Vector2( 15, -9 )
+polygon = PoolVector2Array( -56.5, 8.5, -50.5, -7.5, -31.5, -23.5, -10.5, -31.5, 3.5, -44.5, 45.5, -45.5, 32.5, -34.5, 52.5, -30.5, 25.5, -27.5, 18.5, -13.5, 43.5, -8.5, 44.5, -2.5, 22.5, 0.5, 25.5, 8.5 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="Pivot/Hurtbox"]
+one_shot = true
+
+[node name="RemoteTransforms" type="Node2D" parent="Pivot"]
+
+[node name="GroundShape" type="RemoteTransform2D" parent="Pivot/RemoteTransforms"]
+position = Vector2( 0, -1 )
+remote_path = NodePath("../../../GroundShape")
+update_rotation = false
+
+[node name="BackCapsuleShape" type="RemoteTransform2D" parent="Pivot/RemoteTransforms"]
+position = Vector2( -23, -17 )
+rotation = 0.872665
+remote_path = NodePath("../../../BackCapsuleShape")
+
+[node name="CircleSmoothShape" type="RemoteTransform2D" parent="Pivot/RemoteTransforms"]
+position = Vector2( -39, -2 )
+remote_path = NodePath("../../../CircleSmoothShape")
+
+[node name="CircleSmoothShape2" type="RemoteTransform2D" parent="Pivot/RemoteTransforms"]
+position = Vector2( 39, -2 )
+remote_path = NodePath("../../../CircleSmoothShape2")
+
+[node name="BodyShape" type="RemoteTransform2D" parent="Pivot/RemoteTransforms"]
+position = Vector2( 9, -16 )
+remote_path = NodePath("../../../BodyShape")
+
+[node name="BulletSpawnPoint" type="Position2D" parent="Pivot"]
+position = Vector2( 5, -16 )
+__meta__ = {
+"_gizmo_extents_": 5.0
+}
+
+[node name="BulletSpawnPointTop" type="Position2D" parent="Pivot"]
+visible = false
+position = Vector2( 0, -70 )
+
+[node name="BulletSpawnPointTopRight" type="Position2D" parent="Pivot"]
+visible = false
+position = Vector2( 46, -51 )
+
+[node name="BulletSpawnPointRight" type="Position2D" parent="Pivot"]
+visible = false
+position = Vector2( 46, -14 )
+
+[node name="BulletSpawnPointBottomRight" type="Position2D" parent="Pivot"]
+visible = false
+position = Vector2( 46, 13 )
+
+[node name="BulletSpawnPointBottom" type="Position2D" parent="Pivot"]
+visible = false
+position = Vector2( 0, 16 )
+
+[node name="DeathEffectPosition" type="Position2D" parent="."]
+position = Vector2( 13, -28 )
+
+[node name="BackCapsuleShape" type="CollisionShape2D" parent="."]
+position = Vector2( -23, -17 )
+rotation = 0.872665
+shape = SubResource( 9 )
+
+[node name="GroundShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 8 )
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+position = Vector2( 9, -16 )
+shape = SubResource( 20 )
+
+[node name="CircleSmoothShape" type="CollisionShape2D" parent="."]
+position = Vector2( -39, -2 )
+shape = SubResource( 10 )
+disabled = true
+
+[node name="CircleSmoothShape2" type="CollisionShape2D" parent="."]
+position = Vector2( 39, -2 )
+shape = SubResource( 11 )
+disabled = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Air" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Parry" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+
+[node name="SpecialAbility" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/EnergyBeam = SubResource( 17 )
+anims/RESET = SubResource( 4 )
+anims/SpecialAbility = SubResource( 13 )
+anims/invulnerable = SubResource( 3 )
+
+[node name="ShootingCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpStallTimer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true
+
+[node name="EnergyBeamArea" type="Area2D" parent="."]
+visible = false
+scale = Vector2( 1, 1e-05 )
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+script = ExtResource( 14 )
+damage = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyBeamArea"]
+shape = SubResource( 18 )
+
+[node name="ShaderRect" type="ColorRect" parent="EnergyBeamArea"]
+material = SubResource( 19 )
+margin_left = -1080.0
+margin_top = -63.9999
+margin_right = 1080.0
+margin_bottom = 64.0001
+rect_min_size = Vector2( 2160, 128 )
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 1080, 64 )

@@ -1,0 +1,85 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1648965241-294",
+			"name": "Item",
+			"type": 0,
+			"value": "squat rack"
+		},
+		{
+			"id": "1648922914-123",
+			"name": "Player",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1649049433-366",
+			"name": "WifeName",
+			"type": 0,
+			"value": "Sarah"
+		},
+		{
+			"id": "1648987801-759",
+			"name": "PlayerName",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1649049439-146",
+			"name": "FriendName",
+			"type": 0,
+			"value": "Tanner"
+		},
+		{
+			"id": "1648927370-697",
+			"name": "TV Show",
+			"type": 0,
+			"value": "My Little Donkey"
+		},
+		{
+			"id": "1648923271-989",
+			"name": "yellow",
+			"type": 0,
+			"value": "[color=#e8c170]"
+		},
+		{
+			"id": "1648922953-330",
+			"name": "Scientist",
+			"type": 0,
+			"value": "[color=#a8ca58]Carl[/color]"
+		},
+		{
+			"id": "1648961683-648",
+			"name": "Friend",
+			"type": 0,
+			"value": "[color=#3c5e8b]Tanner[/color]"
+		},
+		{
+			"id": "1648922994-154",
+			"name": "Daughter",
+			"type": 0,
+			"value": "[color=#73bed3]Nina[/color]"
+		},
+		{
+			"id": "1649049427-787",
+			"name": "DaughterName",
+			"type": 0,
+			"value": "Nina"
+		},
+		{
+			"id": "1649049413-648",
+			"name": "ScientistName",
+			"type": 0,
+			"value": "Carl"
+		},
+		{
+			"id": "1648926765-271",
+			"name": "Wife",
+			"type": 0,
+			"value": "[color=#df84a5]Sarah[/color]"
+		}
+	]
+}

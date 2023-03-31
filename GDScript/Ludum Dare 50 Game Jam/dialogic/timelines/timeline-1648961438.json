@@ -1,0 +1,105 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good afternoon daddy! You were in bed for a long time…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey there pumpkin. Don’t worry. Daddy is okay."
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey honey, you didn’t hear about the news?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "News?"
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "*whispers* I’m really sorry honey, but [Friend] passed away earlier today. It was a tragic car accident, and both his wife and child were also in the car. They’re still alive but they’re in critical condition."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "*whispers* I can’t believe this…"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy, what’s wrong?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "N-nothing, sweetie. Daddy has to get going now."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But daddy, you promise you’d watch [TV Show] with me!!"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I will when I get home sweetie. I promise."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pinky promise?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Be safe daddy."
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Are you sure you’ll be okay dear? I know it’s just a cold but you shouldn’t push yourself."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s okay honey. I’ll be fine."
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, be safe."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648961438.json",
+		"name": "Home2-Daughter"
+	}
+}

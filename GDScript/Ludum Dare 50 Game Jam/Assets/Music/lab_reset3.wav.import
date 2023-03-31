@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lab_reset3.wav-fb81e4c77db08036c231239618be3cf1.sample"
+
+[deps]
+
+source_file="res://Assets/Music/lab_reset3.wav"
+dest_files=[ "res://.import/lab_reset3.wav-fb81e4c77db08036c231239618be3cf1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

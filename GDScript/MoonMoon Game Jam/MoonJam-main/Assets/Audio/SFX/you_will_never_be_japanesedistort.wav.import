@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/you_will_never_be_japanesedistort.wav-2fa90e9eb85be6df6272194d4282f9af.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/you_will_never_be_japanesedistort.wav"
+dest_files=[ "res://.import/you_will_never_be_japanesedistort.wav-2fa90e9eb85be6df6272194d4282f9af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Interface/input-box.png" type="Texture" id=2]
+[ext_resource path="res://src/Game/DialogueCircle/DialogueCircle.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 64.0078
+
+[node name="DialogueCircle" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="InputKey" type="TextureRect" parent="."]
+margin_left = -8.0
+margin_top = -45.0
+margin_right = 8.0
+margin_bottom = -29.0
+rect_min_size = Vector2( 16, 16 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="InputKey"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "E"
+align = 1
+valign = 1

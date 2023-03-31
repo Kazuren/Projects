@@ -1,0 +1,362 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/fonts/montreal/Montreal48Bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Interface/InventoryMenu/InventoryMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/Interface/InventoryMenu/EquipmentSlot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/fonts/montreal/Montreal64Bold.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/fonts/montreal/Montreal32Bold.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.984314, 0.572549, 0.235294, 1 )
+border_color = Color( 0.505882, 0.54902, 0.972549, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.321569, 0.321569, 0.321569, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+resource_local_to_scene = true
+bg_color = Color( 0.831373, 0.831373, 0.847059, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id=5]
+resource_local_to_scene = true
+bg_color = Color( 0.831373, 0.831373, 0.847059, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id=6]
+resource_local_to_scene = true
+bg_color = Color( 0.831373, 0.831373, 0.847059, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id=9]
+resource_local_to_scene = true
+bg_color = Color( 0.831373, 0.831373, 0.847059, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+corner_detail = 12
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="InventoryMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+
+[node name="Menu" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -379.5
+margin_right = 540.0
+margin_bottom = 379.5
+
+[node name="Background" type="Panel" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Menu/Background/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1064.0
+margin_bottom = 743.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Inventory" type="MarginContainer" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Inventory"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1048.0
+margin_bottom = 727.0
+
+[node name="TitleBackground" type="Panel" parent="Menu/Inventory/VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Inventory/VBoxContainer/TitleBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemLabel" type="Label" parent="Menu/Inventory/VBoxContainer/TitleBackground/VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 79.0
+text = "Cum Shooter"
+align = 1
+valign = 1
+
+[node name="ItemTypeLabel" type="Label" parent="Menu/Inventory/VBoxContainer/TitleBackground/VBoxContainer"]
+margin_top = 83.0
+margin_right = 1016.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 5 )
+text = "Special"
+align = 1
+valign = 1
+
+[node name="EquipmentSlotContainer" type="HBoxContainer" parent="Menu/Inventory/VBoxContainer"]
+margin_top = 221.0
+margin_right = 1016.0
+margin_bottom = 317.0
+size_flags_vertical = 10
+custom_constants/separation = 32
+alignment = 1
+
+[node name="EquipmentSlot" parent="Menu/Inventory/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 268.0
+margin_right = 364.0
+focus_neighbour_left = NodePath("../EquipmentSlot4")
+focus_neighbour_right = NodePath("../EquipmentSlot2")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 4 )
+
+[node name="EquipmentSlot2" parent="Menu/Inventory/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 396.0
+margin_right = 492.0
+focus_neighbour_left = NodePath("../EquipmentSlot")
+focus_neighbour_right = NodePath("../EquipmentSlot3")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 5 )
+
+[node name="EquipmentSlot3" parent="Menu/Inventory/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 524.0
+margin_right = 620.0
+focus_neighbour_left = NodePath("../EquipmentSlot2")
+focus_neighbour_right = NodePath("../EquipmentSlot4")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 6 )
+slot = 1
+
+[node name="EquipmentSlot4" parent="Menu/Inventory/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 652.0
+margin_right = 748.0
+focus_neighbour_left = NodePath("../EquipmentSlot3")
+focus_neighbour_right = NodePath("../EquipmentSlot")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 9 )
+slot = 2
+
+[node name="ItemDescriptionLabel" type="Label" parent="Menu/Inventory/VBoxContainer"]
+margin_top = 466.0
+margin_right = 1016.0
+margin_bottom = 506.0
+size_flags_vertical = 10
+custom_colors/font_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Description"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="DoneButton" type="ToolButton" parent="Menu/Inventory/VBoxContainer"]
+margin_top = 627.0
+margin_right = 1016.0
+margin_bottom = 695.0
+focus_neighbour_top = NodePath("../EquipmentSlotContainer/EquipmentSlot")
+size_flags_vertical = 10
+custom_colors/font_color_focus = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_colors/font_color_hover = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_colors/font_color_pressed = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 7 )
+text = "Done"
+
+[node name="SelectItemMenu" type="MarginContainer" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/SelectItemMenu"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1048.0
+margin_bottom = 727.0
+
+[node name="TitleBackground" type="Panel" parent="Menu/SelectItemMenu/VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/SelectItemMenu/VBoxContainer/TitleBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemLabel" type="Label" parent="Menu/SelectItemMenu/VBoxContainer/TitleBackground/VBoxContainer"]
+margin_right = 1016.0
+margin_bottom = 79.0
+text = "Cum Shooter"
+align = 1
+valign = 1
+
+[node name="ItemTypeLabel" type="Label" parent="Menu/SelectItemMenu/VBoxContainer/TitleBackground/VBoxContainer"]
+margin_top = 83.0
+margin_right = 1016.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 5 )
+text = "Special"
+align = 1
+valign = 1
+
+[node name="EquipmentSlotContainer" type="HBoxContainer" parent="Menu/SelectItemMenu/VBoxContainer"]
+margin_top = 221.0
+margin_right = 1016.0
+margin_bottom = 317.0
+size_flags_vertical = 10
+custom_constants/separation = 32
+alignment = 1
+
+[node name="EquipmentSlot" parent="Menu/SelectItemMenu/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 332.0
+margin_right = 428.0
+focus_neighbour_left = NodePath("../EquipmentSlot4")
+focus_neighbour_right = NodePath("../EquipmentSlot2")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 4 )
+
+[node name="EquipmentSlot3" parent="Menu/SelectItemMenu/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 460.0
+margin_right = 556.0
+focus_neighbour_left = NodePath("../EquipmentSlot4")
+focus_neighbour_right = NodePath("../EquipmentSlot2")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 4 )
+
+[node name="EquipmentSlot2" parent="Menu/SelectItemMenu/VBoxContainer/EquipmentSlotContainer" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_right = 684.0
+focus_neighbour_left = NodePath("../EquipmentSlot4")
+focus_neighbour_right = NodePath("../EquipmentSlot2")
+focus_neighbour_bottom = NodePath("../../DoneButton")
+custom_styles/panel = SubResource( 4 )
+
+[node name="ItemDescriptionLabel" type="Label" parent="Menu/SelectItemMenu/VBoxContainer"]
+margin_top = 466.0
+margin_right = 1016.0
+margin_bottom = 506.0
+size_flags_vertical = 10
+custom_colors/font_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Description"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="DoneButton" type="ToolButton" parent="Menu/SelectItemMenu/VBoxContainer"]
+margin_top = 627.0
+margin_right = 1016.0
+margin_bottom = 695.0
+focus_neighbour_top = NodePath("../../../SelectItemMenu/EquipmentSlotContainer/EquipmentSlot")
+size_flags_vertical = 10
+custom_colors/font_color_focus = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_colors/font_color_hover = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_colors/font_color_pressed = Color( 0.72549, 0.109804, 0.109804, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 7 )
+text = "Done"
+
+[node name="NoItemsLabel" type="Label" parent="Menu/SelectItemMenu"]
+visible = false
+margin_left = 32.0
+margin_top = 340.0
+margin_right = 1048.0
+margin_bottom = 419.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "No items available"
+align = 1
+valign = 1

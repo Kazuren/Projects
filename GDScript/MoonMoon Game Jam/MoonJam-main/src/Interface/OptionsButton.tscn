@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/fonts/montreal/Montreal48.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="OptionsButton" type="ToolButton"]
+margin_right = 200.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_colors/font_color_disabled = Color( 0.247059, 0.247059, 0.27451, 0.498039 )
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.478431, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 1 )
+text = "Back"

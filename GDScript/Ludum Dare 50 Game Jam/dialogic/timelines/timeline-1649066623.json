@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Two men are wrestling in their underwear on a locker room floor. Better get going."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649066623.json",
+		"name": "TVInteraction"
+	}
+}

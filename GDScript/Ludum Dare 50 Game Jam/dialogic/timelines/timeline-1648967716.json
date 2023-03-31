@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[Daughter]!? Sweetie!? No, no, no, no, no, no, this can’t be.\n"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[shake rate=30 level=15][color=#a53030]uuorgh...[/color][/shake]"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "N-no, not you too pumpkin… You were all I have left…"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648967716.json",
+		"name": "CityDaughterMutantEncounter"
+	}
+}

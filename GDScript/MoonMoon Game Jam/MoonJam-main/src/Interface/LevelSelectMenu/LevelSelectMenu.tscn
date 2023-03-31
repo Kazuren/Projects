@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Interface/OptionsButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Interface/LevelSelectMenu/LevelSelectMenu.gd" type="Script" id=3]
+
+[node name="LevelSelectMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 660.0
+margin_top = 108.0
+margin_right = 1260.0
+margin_bottom = 972.0
+custom_constants/separation = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 864.0
+rect_min_size = Vector2( 600, 864 )
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer"]
+margin_left = 200.0
+margin_top = 398.0
+margin_right = 400.0
+margin_bottom = 466.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 64
+alignment = 1
+
+[node name="BackButton" parent="CenterContainer/VBoxContainer/ScrollContainer/ButtonContainer" instance=ExtResource( 1 )]

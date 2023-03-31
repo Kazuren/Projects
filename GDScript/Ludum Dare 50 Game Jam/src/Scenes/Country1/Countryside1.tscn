@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/Scenes/City1/City1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Game/NPC/Npc.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Game/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Game/SceneChanger/SceneChanger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Scenes/Country1/Countryside1.gd" type="Script" id=5]
+[ext_resource path="res://Assets/TILESET.tres" type="TileSet" id=6]
+[ext_resource path="res://Assets/Characters/NPCS/farmer.png" type="Texture" id=7]
+[ext_resource path="res://Assets/arrowpointer.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Backgrounds/Countryside/background.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Backgrounds/Countryside/posts.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Backgrounds/Countryside/trees.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Characters/NPCS/traveller.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Characters/NPCS/car.png" type="Texture" id=13]
+[ext_resource path="res://src/Game/DialogueCircle/DialogueCircle.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.32456
+
+[node name="Countryside" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Arrowpointer" type="Sprite" parent="."]
+position = Vector2( 1584, 400 )
+texture = ExtResource( 8 )
+
+[node name="SceneChanger" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1632, 400 )
+collision_layer = 0
+scene_to_load = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65535, 5, 0, 131071, 5, 0, 196607, 5, 0, 262143, 5, 0, 327679, 5, 0, 393215, 5, 0, 458751, 5, 0, 524287, 5, 0, 589823, 5, 0, 524388, 6, 0, 655359, 5, 0, 589924, 6, 0, 720895, 5, 0, 655460, 6, 0, 786431, 5, 0, 720996, 6, 0, 851967, 5, 0, 786532, 6, 0, 917503, 5, 0, 852068, 6, 0, 983039, 5, 0, 917604, 6, 0, 1048575, 5, 0, 983140, 6, 0, 1114111, 5, 0, 1048676, 6, 0, 1179647, 5, 0, 1114212, 6, 0, 1245183, 5, 0, 1179748, 6, 0, 1310719, 5, 0, 1245284, 6, 0, 1376255, 5, 0, 1441791, 5, 0, 1507327, 5, 0, 1572863, 5, 0, 1638399, 5, 0, 1703935, 5, 0, 1769471, 5, 0, 1835007, 2, 0, 1769472, 2, 0, 1769473, 2, 0, 1769474, 2, 0, 1769475, 2, 0, 1769476, 2, 0, 1769477, 2, 0, 1769478, 2, 0, 1769479, 2, 0, 1769480, 2, 0, 1769481, 2, 0, 1769482, 2, 0, 1769483, 2, 0, 1769484, 2, 0, 1769485, 2, 0, 1769486, 2, 0, 1769487, 2, 0, 1769488, 2, 0, 1769489, 2, 0, 1769490, 2, 0, 1769491, 2, 0, 1769492, 2, 0, 1769493, 2, 0, 1769494, 2, 0, 1769495, 2, 0, 1769496, 2, 0, 1769497, 2, 0, 1769498, 2, 0, 1769499, 2, 0, 1769500, 2, 0, 1769501, 2, 0, 1769502, 2, 0, 1769503, 2, 0, 1769504, 2, 0, 1769505, 2, 0, 1769506, 2, 0, 1769507, 2, 0, 1769508, 2, 0, 1769509, 2, 0, 1769510, 2, 0, 1769511, 2, 0, 1769512, 2, 0, 1769513, 2, 0, 1769514, 2, 0, 1769515, 2, 0, 1769516, 2, 0, 1769517, 2, 0, 1769518, 2, 0, 1769519, 2, 0, 1769520, 2, 0, 1769521, 2, 0, 1769522, 2, 0, 1769523, 2, 0, 1769524, 2, 0, 1769525, 2, 0, 1769526, 2, 0, 1769527, 2, 0, 1769528, 2, 0, 1769529, 2, 0, 1769530, 2, 0, 1769531, 2, 0, 1769532, 2, 0, 1769533, 2, 0, 1769534, 2, 0, 1769535, 2, 0, 1769536, 2, 0, 1769537, 2, 0, 1769538, 2, 0, 1769539, 2, 0, 1769540, 2, 0, 1769541, 2, 0, 1769542, 2, 0, 1769543, 2, 0, 1769544, 2, 0, 1769545, 2, 0, 1769546, 2, 0, 1769547, 2, 0, 1769548, 2, 0, 1769549, 2, 0, 1769550, 2, 0, 1769551, 2, 0, 1769552, 2, 0, 1769553, 2, 0, 1769554, 2, 0, 1769555, 2, 0, 1769556, 2, 0, 1769557, 2, 0, 1769558, 2, 0, 1769559, 2, 0, 1769560, 2, 0, 1769561, 2, 0, 1769562, 2, 0, 1769563, 2, 0, 1769564, 2, 0, 1769565, 2, 0, 1769566, 2, 0, 1769567, 2, 0, 1769568, 2, 0, 1769569, 2, 0, 1769570, 2, 0, 1769571, 2, 0, 1769572, 2, 0, 1900543, 3, 0, 1835008, 3, 0, 1835009, 3, 0, 1835010, 3, 0, 1835011, 3, 0, 1835012, 3, 0, 1835013, 3, 0, 1835014, 3, 0, 1835015, 3, 0, 1835016, 3, 0, 1835017, 3, 0, 1835018, 3, 0, 1835019, 3, 0, 1835020, 3, 0, 1835021, 3, 0, 1835022, 3, 0, 1835023, 3, 0, 1835024, 3, 0, 1835025, 3, 0, 1835026, 3, 0, 1835027, 3, 0, 1835028, 3, 0, 1835029, 3, 0, 1835030, 3, 0, 1835031, 3, 0, 1835032, 3, 0, 1835033, 3, 0, 1835034, 3, 0, 1835035, 3, 0, 1835036, 3, 0, 1835037, 3, 0, 1835038, 3, 0, 1835039, 3, 0, 1835040, 3, 0, 1835041, 3, 0, 1835042, 3, 0, 1835043, 3, 0, 1835044, 3, 0, 1835045, 3, 0, 1835046, 3, 0, 1835047, 3, 0, 1835048, 3, 0, 1835049, 3, 0, 1835050, 3, 0, 1835051, 3, 0, 1835052, 3, 0, 1835053, 3, 0, 1835054, 3, 0, 1835055, 3, 0, 1835056, 3, 0, 1835057, 3, 0, 1835058, 3, 0, 1835059, 3, 0, 1835060, 3, 0, 1835061, 3, 0, 1835062, 3, 0, 1835063, 3, 0, 1835064, 3, 0, 1835065, 3, 0, 1835066, 3, 0, 1835067, 3, 0, 1835068, 3, 0, 1835069, 3, 0, 1835070, 3, 0, 1835071, 3, 0, 1835072, 3, 0, 1835073, 3, 0, 1835074, 3, 0, 1835075, 3, 0, 1835076, 3, 0, 1835077, 3, 0, 1835078, 3, 0, 1835079, 3, 0, 1835080, 3, 0, 1835081, 3, 0, 1835082, 3, 0, 1835083, 3, 0, 1835084, 3, 0, 1835085, 3, 0, 1835086, 3, 0, 1835087, 3, 0, 1835088, 3, 0, 1835089, 3, 0, 1835090, 3, 0, 1835091, 3, 0, 1835092, 3, 0, 1835093, 3, 0, 1835094, 3, 0, 1835095, 3, 0, 1835096, 3, 0, 1835097, 3, 0, 1835098, 3, 0, 1835099, 3, 0, 1835100, 3, 0, 1835101, 3, 0, 1835102, 3, 0, 1835103, 3, 0, 1835104, 3, 0, 1835105, 3, 0, 1835106, 3, 0, 1835107, 3, 0, 1835108, 3, 0, 1966079, 3, 0, 1900544, 3, 0, 1900545, 3, 0, 1900546, 3, 0, 1900547, 3, 0, 1900548, 3, 0, 1900549, 3, 0, 1900550, 3, 0, 1900551, 3, 0, 1900552, 3, 0, 1900553, 3, 0, 1900554, 3, 0, 1900555, 3, 0, 1900556, 3, 0, 1900557, 3, 0, 1900558, 3, 0, 1900559, 3, 0, 1900560, 3, 0, 1900561, 3, 0, 1900562, 3, 0, 1900563, 3, 0, 1900564, 3, 0, 1900565, 3, 0, 1900566, 3, 0, 1900567, 3, 0, 1900568, 3, 0, 1900569, 3, 0, 1900570, 3, 0, 1900571, 3, 0, 1900572, 3, 0, 1900573, 3, 0, 1900574, 3, 0, 1900575, 3, 0, 1900576, 3, 0, 1900577, 3, 0, 1900578, 3, 0, 1900579, 3, 0, 1900580, 3, 0, 1900581, 3, 0, 1900582, 3, 0, 1900583, 3, 0, 1900584, 3, 0, 1900585, 3, 0, 1900586, 3, 0, 1900587, 3, 0, 1900588, 3, 0, 1900589, 3, 0, 1900590, 3, 0, 1900591, 3, 0, 1900592, 3, 0, 1900593, 3, 0, 1900594, 3, 0, 1900595, 3, 0, 1900596, 3, 0, 1900597, 3, 0, 1900598, 3, 0, 1900599, 3, 0, 1900600, 3, 0, 1900601, 3, 0, 1900602, 3, 0, 1900603, 3, 0, 1900604, 3, 0, 1900605, 3, 0, 1900606, 3, 0, 1900607, 3, 0, 1900608, 3, 0, 1900609, 3, 0, 1900610, 3, 0, 1900611, 3, 0, 1900612, 3, 0, 1900613, 3, 0, 1900614, 3, 0, 1900615, 3, 0, 1900616, 3, 0, 1900617, 3, 0, 1900618, 3, 0, 1900619, 3, 0, 1900620, 3, 0, 1900621, 3, 0, 1900622, 3, 0, 1900623, 3, 0, 1900624, 3, 0, 1900625, 3, 0, 1900626, 3, 0, 1900627, 3, 0, 1900628, 3, 0, 1900629, 3, 0, 1900630, 3, 0, 1900631, 3, 0, 1900632, 3, 0, 1900633, 3, 0, 1900634, 3, 0, 1900635, 3, 0, 1900636, 3, 0, 1900637, 3, 0, 1900638, 3, 0, 1900639, 3, 0, 1900640, 3, 0, 1900641, 3, 0, 1900642, 3, 0, 1900643, 3, 0, 1900644, 3, 0, 2031615, 3, 0, 1966080, 3, 0, 1966081, 3, 0, 1966082, 3, 0, 1966083, 3, 0, 1966084, 3, 0, 1966085, 3, 0, 1966086, 3, 0, 1966087, 3, 0, 1966088, 3, 0, 1966089, 3, 0, 1966090, 3, 0, 1966091, 3, 0, 1966092, 3, 0, 1966093, 3, 0, 1966094, 3, 0, 1966095, 3, 0, 1966096, 3, 0, 1966097, 3, 0, 1966098, 3, 0, 1966099, 3, 0, 1966100, 3, 0, 1966101, 3, 0, 1966102, 3, 0, 1966103, 3, 0, 1966104, 3, 0, 1966105, 3, 0, 1966106, 3, 0, 1966107, 3, 0, 1966108, 3, 0, 1966109, 3, 0, 1966110, 3, 0, 1966111, 3, 0, 1966112, 3, 0, 1966113, 3, 0, 1966114, 3, 0, 1966115, 3, 0, 1966116, 3, 0, 1966117, 3, 0, 1966118, 3, 0, 1966119, 3, 0, 1966120, 3, 0, 1966121, 3, 0, 1966122, 3, 0, 1966123, 3, 0, 1966124, 3, 0, 1966125, 3, 0, 1966126, 3, 0, 1966127, 3, 0, 1966128, 3, 0, 1966129, 3, 0, 1966130, 3, 0, 1966131, 3, 0, 1966132, 3, 0, 1966133, 3, 0, 1966134, 3, 0, 1966135, 3, 0, 1966136, 3, 0, 1966137, 3, 0, 1966138, 3, 0, 1966139, 3, 0, 1966140, 3, 0, 1966141, 3, 0, 1966142, 3, 0, 1966143, 3, 0, 1966144, 3, 0, 1966145, 3, 0, 1966146, 3, 0, 1966147, 3, 0, 1966148, 3, 0, 1966149, 3, 0, 1966150, 3, 0, 1966151, 3, 0, 1966152, 3, 0, 1966153, 3, 0, 1966154, 3, 0, 1966155, 3, 0, 1966156, 3, 0, 1966157, 3, 0, 1966158, 3, 0, 1966159, 3, 0, 1966160, 3, 0, 1966161, 3, 0, 1966162, 3, 0, 1966163, 3, 0, 1966164, 3, 0, 1966165, 3, 0, 1966166, 3, 0, 1966167, 3, 0, 1966168, 3, 0, 1966169, 3, 0, 1966170, 3, 0, 1966171, 3, 0, 1966172, 3, 0, 1966173, 3, 0, 1966174, 3, 0, 1966175, 3, 0, 1966176, 3, 0, 1966177, 3, 0, 1966178, 3, 0, 1966179, 3, 0, 1966180, 3, 0 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.2, 1 )
+motion_offset = Vector2( -96, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="Background/ParallaxLayer"]
+position = Vector2( -179, 134 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.7, 1 )
+motion_offset = Vector2( -96, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Trees" type="Sprite" parent="Background/ParallaxLayer2"]
+position = Vector2( 944, 286 )
+texture = ExtResource( 11 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Posts" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( -16, 138 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Farmer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 933, 408 )
+texture = ExtResource( 7 )
+
+[node name="Label" parent="Farmer" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = -124.0
+margin_top = -68.0
+margin_right = 60.0
+margin_bottom = -49.0
+text = "I hope the harvests
+are better this year..."
+
+[node name="Traveler" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1427, 408 )
+texture = ExtResource( 12 )
+
+[node name="Label" parent="Traveler" index="0"]
+text = "Why a flat now of all times..."
+
+[node name="Car" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1501, 410 )
+texture = ExtResource( 13 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4, 408 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_right = 0.1
+editor_draw_drag_margin = true
+
+[node name="FarmerInteraction" parent="." instance=ExtResource( 14 )]
+position = Vector2( 933, 398 )
+dialog_timeline = "FarmerInteraction"
+once = false
+
+[node name="CollisionShape2D" parent="FarmerInteraction" index="0"]
+shape = SubResource( 1 )
+
+[node name="InputKey" parent="FarmerInteraction" index="1"]
+margin_top = -37.0
+margin_bottom = -21.0
+
+[editable path="Farmer"]
+[editable path="Traveler"]
+[editable path="FarmerInteraction"]

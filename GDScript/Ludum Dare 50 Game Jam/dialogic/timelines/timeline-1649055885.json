@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No more sleeping. I need to get to the lab."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649055885.json",
+		"name": "BedInteraction"
+	}
+}

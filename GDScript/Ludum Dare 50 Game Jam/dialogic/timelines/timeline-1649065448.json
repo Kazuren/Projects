@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A picture of a Pomeranian. For some reason I feel annoyed by it."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649065448.json",
+		"name": "PomerianInteraction"
+	}
+}

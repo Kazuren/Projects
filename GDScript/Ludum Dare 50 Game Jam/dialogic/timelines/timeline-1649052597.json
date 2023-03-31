@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I can't wait for you to watch the new episode of My Little Donkey with me, daddy! Donkey and his green ogre friend are teaching about the power of friendship!!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649052597.json",
+		"name": "Home1-DaughterExtra"
+	}
+}

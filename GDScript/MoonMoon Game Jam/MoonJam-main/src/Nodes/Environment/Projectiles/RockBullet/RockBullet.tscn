@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Nodes/Environment/Projectiles/RockBullet/RockBullet.gd" type="Script" id=1]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+resource_local_to_scene = true
+bg_color = Color( 1.16, 0.35, 0.35, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[node name="Rock" type="Node2D"]
+script = ExtResource( 1 )
+lifetime = 20.0
+speed = 6.0
+
+[node name="Control" type="Control" parent="."]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="OuterPanel" type="Panel" parent="Control"]
+margin_right = 32.0
+margin_bottom = 32.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 2 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 1 )

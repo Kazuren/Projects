@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy, I'm worried about mommy..."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't worry sweetie. I'm sure mommy is okay."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649053904.json",
+		"name": "Home3-DaughterExtra"
+	}
+}

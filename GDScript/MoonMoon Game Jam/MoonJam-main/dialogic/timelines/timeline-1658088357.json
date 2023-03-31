@@ -1,0 +1,57 @@
+{
+	"events": [
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What in god’s good cum is this abomination?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Jesse! Oh no… "
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This cosmic horror is your friend!?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It looks to be so."
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I guess his receding hairline truly drove him to madness, warped by the corrosive nature of space itself."
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "My old friend… A travesty, truly. "
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You must put an end to this young Borpa."
+		},
+		{
+			"character": "character-1658088419.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Who dares enter my territory!? No one else will have the Giga Cum Chalice of Hell 2! Run away now Billy, or prepare to die!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658088357.json",
+		"name": "BossFightStart"
+	}
+}

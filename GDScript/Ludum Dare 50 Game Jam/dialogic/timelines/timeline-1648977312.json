@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[Daughter]? Sweetie? Where are you?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Where could she be? There’s no school today after all. Maybe she’s still at her friend’s?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648977312.json",
+		"name": "Home4-DaughterMissing"
+	}
+}

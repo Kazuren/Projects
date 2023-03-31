@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/devil_intro_35sec.wav-7178b864b0612a081d4627a0e05485ff.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/devil_intro_35sec.wav"
+dest_files=[ "res://.import/devil_intro_35sec.wav-7178b864b0612a081d4627a0e05485ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

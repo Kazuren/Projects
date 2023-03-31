@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh no. No. No. No. This can’t be. Oh fuck. [Wife]. Dear. Please respond. No no no no no no. I can’t believe this is happening. [Scientist] better have a way to revert this."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648966790.json",
+		"name": "DeadWife"
+	}
+}

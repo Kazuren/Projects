@@ -1,0 +1,87 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy! Daddy! You’re finally up!!"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey there, pumpkin. Hope you haven’t been giving your mother too much trouble about eating your vegetables."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmph! Of course I eat my vegetables, even if they taste icky!"
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good afternoon darling. I hope you’re feeling better than earlier. Don’t feel like you need to stay up if you’re feeling awful again."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thanks honey. I’ll be okay for now. I can’t stay in bed all day away from my lovely family anyways."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy, can we watch [TV Show]?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sorry pumpkin. Daddy’s got to go somewhere important, but I’ll watch [TV Show] with you when I get back later."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Aw…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don’t be sad cupcake. Daddy will be back, I promise."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pinky promise?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course."
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Be safe daddy."
+		},
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Have a safe trip honey."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648926550.json",
+		"name": "Home1-Daughter"
+	}
+}

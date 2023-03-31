@@ -1,0 +1,781 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://src/Scenes/Level 3/Level 3.gd" type="Script" id=2]
+[ext_resource path="res://src/Nodes/AI/BackAndForthAI/BackAndForthAI.gd" type="Script" id=3]
+[ext_resource path="res://src/Nodes/Enemy/Flappers/Flappers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Scenes/Level 5/finalscene1.png" type="Texture" id=5]
+[ext_resource path="res://src/Nodes/Enemy/FishMoley/FishMoley.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Nodes/Enemy/Snorpa/Snorpa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Nodes/Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Nodes/Environment/Projectiles/RockBullet/RockBullet.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Audio/Music/space/Spacelevelloop.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/Nodes/FinishLine/FinishLine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Nodes/Coin/Coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Nodes/AI/ShootAtPlayerAI/ShootAtPlayerAI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Nodes/SpawnPoint/SpawnPoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Nodes/Enemy/JOKA/Joka.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Nodes/AI/FollowPathAI/FollowPathAI.gd" type="Script" id=16]
+[ext_resource path="res://src/Tileset/tileset.tres" type="TileSet" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 1000 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 1000 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 448, 512, 0, 0, 0, 0, 448, 832 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 448, 832, 0, 0, 0, 0, 448, 512 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 448, 512, 0, 0, 0, 0, 448, 832 )
+}
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 448, 844, 0, 0, 0, 0, 450, 554 )
+}
+
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 124, 686, 0, 0, 0, 0, 700, 686 )
+}
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 154, 974, 0, 0, 0, 0, 3420, 974, 0, 0, 0, 0, 3420, 654 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1984, 1156, -140.966, -0.92499, 140.966, 0.92499, 2208, 416, 0, 0, 0, 0, 2430, 1152 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -119.103, 2.4386, 119.103, -2.4386, 2214, 190, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -119.103, 2.4386, 119.103, -2.4386, 2216, 196, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -119.103, 2.4386, 119.103, -2.4386, 2200, 692, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -106.403, 0.851195, 106.403, -0.851195, 2200, 546, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -141.326, 0.851195, 141.326, -0.851195, 2198, 480, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -141.326, 0.851195, 141.326, -0.851195, 2194, 416, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -141.326, 0.851195, 141.326, -0.851195, 2198, 510, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -141.326, 0.851195, 141.326, -0.851195, 2198, 510, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2022, 1056, -141.326, 0.851195, 141.326, -0.851195, 2194, 416, 0, 0, 0, 0, 2372, 1054 )
+}
+
+[node name="Level 3" type="Node2D"]
+script = ExtResource( 2 )
+unlocks = 5
+id = 4
+best_time = 25.0
+music = ExtResource( 10 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="LevelBarrier" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarrier"]
+position = Vector2( -96, -40 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBarrier"]
+position = Vector2( 8672, -40 )
+shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 17 )
+cell_y_sort = true
+show_collision = true
+centered_textures = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 327729, 3, 0, 393253, 3, 0, 393261, 3, 0, 458793, 3, 0, 458805, 3, 0, 524316, 3, 0, 524317, 3, 0, 524318, 3, 0, 524319, 3, 0, 524320, 3, 0, 524321, 3, 0, 589881, 3, 0, 589882, 3, 0, 589883, 3, 0, 655378, 3, 0, 655379, 3, 0, 655380, 3, 0, 655381, 3, 0, 655382, 3, 0, 655383, 3, 0, 655461, 3, 0, 655462, 3, 0, 655463, 3, 0, 655470, 3, 0, 655471, 3, 0, 655472, 3, 0, 655480, 3, 0, 655481, 3, 0, 655482, 3, 0, 655483, 3, 0, 655484, 3, 0, 655485, 3, 0, 655486, 3, 0, 655487, 3, 0, 655488, 3, 0, 655489, 3, 0, 655490, 3, 0, 655491, 3, 0, 655492, 3, 0, 655493, 3, 0, 655494, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 720936, 3, 0, 720937, 3, 0, 720989, 3, 0, 720990, 3, 0, 720991, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786518, 3, 0, 786519, 3, 0, 786520, 3, 0, 852012, 3, 0, 852013, 3, 0, 852014, 3, 0, 852015, 3, 0, 852016, 3, 0, 852017, 3, 0, 852049, 3, 0, 852050, 3, 0, 852051, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 1048575, 3, 0, 983040, 3, 0, 983041, 3, 0, 983042, 3, 0, 983043, 3, 0, 983044, 3, 0, 983094, 3, 0, 983095, 3, 0, 983096, 3, 0, 983097, 3, 0, 983098, 3, 0, 983099, 3, 0, 983100, 3, 0, 983101, 3, 0, 983102, 3, 0, 983103, 3, 0, 983104, 3, 0, 983105, 3, 0, 983106, 3, 0, 983107, 3, 0, 983108, 3, 0, 983109, 3, 0, 983110, 3, 0, 983111, 3, 0, 983112, 3, 0, 983113, 3, 0, 983114, 3, 0, 983115, 3, 0, 983116, 3, 0, 983117, 3, 0, 983118, 3, 0, 1114111, 3, 0, 1048576, 3, 0, 1048577, 3, 0, 1048578, 3, 0, 1048579, 3, 0, 1048580, 3, 0, 1048630, 3, 0, 1048631, 3, 0, 1048632, 3, 0, 1048633, 3, 0, 1048634, 3, 0, 1048635, 3, 0, 1048636, 3, 0, 1048637, 3, 0, 1048638, 3, 0, 1048639, 3, 0, 1048640, 3, 0, 1048641, 3, 0, 1048642, 3, 0, 1048643, 3, 0, 1048644, 3, 0, 1048645, 3, 0, 1048646, 3, 0, 1048647, 3, 0, 1048648, 3, 0, 1048649, 3, 0, 1048650, 3, 0, 1048651, 3, 0, 1048652, 3, 0, 1048653, 3, 0, 1048654, 3, 0 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 12 )]
+position = Vector2( 3680, 480 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 12 )]
+position = Vector2( 3744, 480 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 12 )]
+position = Vector2( 3808, 480 )
+
+[node name="FinishLine" parent="." instance=ExtResource( 11 )]
+position = Vector2( 8512, 640 )
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SnorpaSpawn2" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 706, 768 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn2/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn2/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn3" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 1280, 640 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn3/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn3/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn5" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 2656, 448 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn5/AI" index="0" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn6" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 2912, 384 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn6/AI" index="0" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn7" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3168, 320 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn7/AI" index="0" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn8" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3712, 576 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn8/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn8/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn9" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3842, 958 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn9/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn9/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn10" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 4798, 960 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn10/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn10/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn11" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 6560, 640 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn11/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn11/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn12" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 7808, 640 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn12/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn12/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="SnorpaSpawn13" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 8128, 640 )
+enemy_scene = ExtResource( 7 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/SnorpaSpawn13/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/SnorpaSpawn13/AI" index="1" instance=ExtResource( 13 )]
+Bullet = ExtResource( 9 )
+parriable_bullet_chance = 0.2
+shoot_only_when_looking = true
+
+[node name="JokaSpawn" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 2048, 512 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="JokaSpawn2" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 4320, 960 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn2/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="JokaSpawn3" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 5632, 768 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn3/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="JokaSpawn4" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 7168, 640 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn4/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="JokaSpawn5" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 7934, 638 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn5/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="JokaSpawn6" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 8610, 640 )
+enemy_scene = ExtResource( 15 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="BackAndForthAI" type="Node" parent="SpawnPoints/JokaSpawn6/AI" index="0"]
+script = ExtResource( 3 )
+direction = -1
+
+[node name="FlapperSpawn" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 448, 512 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath")
+kill_on_end = false
+loop = true
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FlapperSpawn2" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 992, 704 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn2/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath2")
+kill_on_end = false
+loop = true
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn2/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FlapperSpawn3" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 1632, 256 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn3/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath3")
+kill_on_end = false
+loop = true
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn3/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FlapperSpawn4" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3744, 386 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn4/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath4")
+kill_on_end = false
+loop = true
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn4/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FlapperSpawn5" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 4032, 384 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn5/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath5")
+kill_on_end = false
+loop = true
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn5/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FlapperSpawn6" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 8512, -64 )
+enemy_scene = ExtResource( 4 )
+looking_direction = -1
+cooldown = 1.5
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FlapperSpawn6/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FlapperPath6")
+
+[node name="ShootAtPlayerAI" parent="SpawnPoints/FlapperSpawn6/AI" index="1" instance=ExtResource( 13 )]
+detection_radius = 1024
+Bullet = ExtResource( 9 )
+variable_y_value = true
+
+[node name="FishMoleySpawn" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 1984, 1154 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn2" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 2624, 1184 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn2/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath2")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn3" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3124, 1186 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn3/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath3")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn4" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 3842, 1156 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn4/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath4")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn5" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 4080, 1156 )
+enemy_scene = ExtResource( 6 )
+cooldown_offset = 1.0
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn5/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath5")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn6" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 4322, 1154 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn6/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath6")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn7" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 5228, 1152 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn7/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath7")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn8" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 5662, 1150 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn8/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath8")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn9" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 6148, 1150 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn9/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath8")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn10" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 6668, 1152 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn10/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath8")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn11" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 7252, 1152 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn11/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath8")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="FishMoleySpawn12" parent="SpawnPoints" instance=ExtResource( 14 )]
+position = Vector2( 8124, 1152 )
+enemy_scene = ExtResource( 6 )
+parent_path = NodePath("../../Enemies")
+
+[node name="FollowPathAI" type="Node" parent="SpawnPoints/FishMoleySpawn12/AI" index="0"]
+script = ExtResource( 16 )
+path_node_path = NodePath("../../../../Enemies/Paths/FishMoleyPath8")
+rotate = true
+use_unit_offset = true
+time_required = 1.2
+ease_curve = -0.6
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Paths" type="Node2D" parent="Enemies"]
+
+[node name="FlapperPath" type="Path2D" parent="Enemies/Paths"]
+curve = SubResource( 3 )
+
+[node name="FlapperPath2" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 544, -128 )
+curve = SubResource( 4 )
+
+[node name="FlapperPath3" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 1184, -256 )
+curve = SubResource( 5 )
+
+[node name="FlapperPath4" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 3296, -458 )
+curve = SubResource( 16 )
+
+[node name="FlapperPath5" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 3908, -302 )
+curve = SubResource( 17 )
+
+[node name="FlapperPath6" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 5092, -718 )
+curve = SubResource( 18 )
+
+[node name="FishMoleyPath" type="Path2D" parent="Enemies/Paths"]
+curve = SubResource( 6 )
+
+[node name="FishMoleyPath2" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 602, 130 )
+curve = SubResource( 7 )
+
+[node name="FishMoleyPath3" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 1102, 128 )
+curve = SubResource( 8 )
+
+[node name="FishMoleyPath4" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 1820, 100 )
+curve = SubResource( 9 )
+
+[node name="FishMoleyPath5" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 2058, 100 )
+curve = SubResource( 9 )
+
+[node name="FishMoleyPath6" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 2300, 100 )
+curve = SubResource( 9 )
+
+[node name="FishMoleyPath7" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 3206, 96 )
+curve = SubResource( 10 )
+
+[node name="FishMoleyPath8" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 3640, 96 )
+curve = SubResource( 11 )
+
+[node name="FishMoleyPath9" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 4126, 96 )
+curve = SubResource( 12 )
+
+[node name="FishMoleyPath10" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 4646, 96 )
+curve = SubResource( 13 )
+
+[node name="FishMoleyPath11" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 5230, 96 )
+curve = SubResource( 14 )
+
+[node name="FishMoleyPath12" type="Path2D" parent="Enemies/Paths"]
+position = Vector2( 6102, 96 )
+curve = SubResource( 15 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, 896 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 0, -27 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.05
+drag_margin_right = 0.05
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Bullets" type="Node" parent="."]
+
+[editable path="SpawnPoints/SnorpaSpawn2"]
+[editable path="SpawnPoints/SnorpaSpawn3"]
+[editable path="SpawnPoints/SnorpaSpawn5"]
+[editable path="SpawnPoints/SnorpaSpawn6"]
+[editable path="SpawnPoints/SnorpaSpawn7"]
+[editable path="SpawnPoints/SnorpaSpawn8"]
+[editable path="SpawnPoints/SnorpaSpawn9"]
+[editable path="SpawnPoints/SnorpaSpawn10"]
+[editable path="SpawnPoints/SnorpaSpawn11"]
+[editable path="SpawnPoints/SnorpaSpawn12"]
+[editable path="SpawnPoints/SnorpaSpawn13"]
+[editable path="SpawnPoints/JokaSpawn"]
+[editable path="SpawnPoints/JokaSpawn2"]
+[editable path="SpawnPoints/JokaSpawn3"]
+[editable path="SpawnPoints/JokaSpawn4"]
+[editable path="SpawnPoints/JokaSpawn5"]
+[editable path="SpawnPoints/JokaSpawn6"]
+[editable path="SpawnPoints/FlapperSpawn"]
+[editable path="SpawnPoints/FlapperSpawn2"]
+[editable path="SpawnPoints/FlapperSpawn3"]
+[editable path="SpawnPoints/FlapperSpawn4"]
+[editable path="SpawnPoints/FlapperSpawn5"]
+[editable path="SpawnPoints/FlapperSpawn6"]
+[editable path="SpawnPoints/FishMoleySpawn"]
+[editable path="SpawnPoints/FishMoleySpawn2"]
+[editable path="SpawnPoints/FishMoleySpawn3"]
+[editable path="SpawnPoints/FishMoleySpawn4"]
+[editable path="SpawnPoints/FishMoleySpawn5"]
+[editable path="SpawnPoints/FishMoleySpawn6"]
+[editable path="SpawnPoints/FishMoleySpawn7"]
+[editable path="SpawnPoints/FishMoleySpawn8"]
+[editable path="SpawnPoints/FishMoleySpawn9"]
+[editable path="SpawnPoints/FishMoleySpawn10"]
+[editable path="SpawnPoints/FishMoleySpawn11"]
+[editable path="SpawnPoints/FishMoleySpawn12"]

@@ -1,0 +1,128 @@
+{
+	"events": [
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You look quite angry."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah, because my wife is fucking dead and I’m fighting back against my own body!!! On top of that, some half human half monster creatures attacked me on my way here!!"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh no. Those side effects of time reset is damaging our surroundings far worse than I anticipated."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now calm down just a second. There’s no need to make this worse."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Worse how!? We’re already near the worst!!"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hold on, I might have something to help this problem."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What is it!? Tell me NOW!!! "
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I have a large gun here that will send a person to a parallel universe, like opening a portal to a parallel reality, a portal gun if you will. Now after we treat your condition, we could send you to a parallel universe where you have already passed away from your condition."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That seems incredibly farfetched. What are the side effects of this gun and how do you know it wouldn’t just create an even greater problem than what there already is?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Unfortunately, I don’t know the answers to those questions. I can’t even guarantee that you’ll even end up in a reality where you actually contracted your current condition and died. But this is the only option you have if you want to see your wife again."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Plus I can’t afford to leave [Daughter] alone just for my own happiness. I don’t think I can do this."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Just providing you with an option. Whether you take it or not is your call."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, now what is the progress on that cure?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, I just managed to start synthesis on the serum and it looks very promising. Judging by the looks of it, it should be ready in about [color=#73bed3]two more days[/color]. So about [color=#73bed3]two more resets[/color] give or take. "
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now go ahead and get into the machine. You know the process by now."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1.0"
+				],
+				"method_name": "fade_in",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "fade_out",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"change_scene": "res://src/Scenes/Home4/Home4.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648967120.json",
+		"name": "Lab4"
+	}
+}

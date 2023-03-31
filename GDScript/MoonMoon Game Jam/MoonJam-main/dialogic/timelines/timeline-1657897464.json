@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1658086819.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do come back again to give us more money."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1657897464.json",
+		"name": "ShopEnd"
+	}
+}

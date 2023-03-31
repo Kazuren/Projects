@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm just as shocked as you are about it honey. Are you sure you should still go out?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's a lot to process right now, but I'll be okay dear."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649053579.json",
+		"name": "Home2-WifeExtra"
+	}
+}

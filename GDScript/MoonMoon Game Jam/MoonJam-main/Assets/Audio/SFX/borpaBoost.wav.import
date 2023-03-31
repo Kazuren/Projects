@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/borpaBoost.wav-5beffdad20a63c85cd912315cf5bf645.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/borpaBoost.wav"
+dest_files=[ "res://.import/borpaBoost.wav-5beffdad20a63c85cd912315cf5bf645.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

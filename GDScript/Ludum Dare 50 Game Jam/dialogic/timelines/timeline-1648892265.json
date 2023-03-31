@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "…I could’ve slept better last night. I can feel my body weakening by the day. Today’s the day, huh? Feels like it’s been just another ordinary Saturday otherwise."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I know I called off work last night for the next week, but I really didn't need to since I'm just gonna end up resetting back to today anyways. But better safe than sorry."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I should see [Wife] and [Daughter] before I leave."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648892265.json",
+		"name": "Home1-Thought"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"color": "#ff3efe41",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1658086819.json",
+	"mirror_portraits": false,
+	"name": "Corpa",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

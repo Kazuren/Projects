@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fuck, I feel even worse than before, but it’s almost over. And then I can take care of [Daughter] and we’ll almost be a normal family again… [Wife]… I’m so sorry…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s gotten only more treacherous out there. I should definitely bring my gun because god knows how many of those mangled mutants there are now out there."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648967599.json",
+		"name": "Home4-Thought"
+	}
+}

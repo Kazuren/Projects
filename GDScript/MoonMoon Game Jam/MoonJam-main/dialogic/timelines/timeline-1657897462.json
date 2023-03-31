@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"character": "character-1658086819.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome to the Corparation Shop, where we have the highest quality products for your purchase."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"res://src/Interface/ShopMenu/ShopMenu.tscn"
+				],
+				"method_name": "append_menu",
+				"target_node_path": "/root/Interface"
+			},
+			"event_id": "dialogic_042"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1657897462.json",
+		"name": "Shop"
+	}
+}

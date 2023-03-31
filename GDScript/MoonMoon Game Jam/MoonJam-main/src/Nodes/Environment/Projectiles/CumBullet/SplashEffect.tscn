@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/UI/UI-Circle.png" type="Texture" id=1]
+[ext_resource path="res://src/Nodes/Environment/Projectiles/CumBullet/SplashEffect.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 5, 5, 5, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 1
+
+[sub_resource type="Curve" id=3]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+max_value = 0.35
+_data = [ Vector2( 0, 0.35 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping_curve = SubResource( 4 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 8 )
+
+[node name="SplashEffect" type="Particles2D"]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+randomness = 0.25
+visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

@@ -1,0 +1,61 @@
+{
+	"events": [
+		{
+			"audio": "play",
+			"audio_bus": "Music",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Assets/SFX/phone-ring.wav",
+			"volume": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[br][wave amp=40 freq=6]*Phone rings*[/wave]"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey [Friend], what’s going on?"
+		},
+		{
+			"character": "character-1648906038.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yo [Player], I’m just calling to give you a heads up about bringing back that [Item] I borrowed from you and [Wife] the other week."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thanks, I’m out of the house but [Wife] should be home, or just leave it at the door."
+		},
+		{
+			"character": "character-1648906038.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Rad, I’ll be over there real quick. Take it easy man."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Assets/SFX/phone-hangup.wav",
+			"volume": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "*Click*"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648964756.json",
+		"name": "City1-Friend"
+	}
+}

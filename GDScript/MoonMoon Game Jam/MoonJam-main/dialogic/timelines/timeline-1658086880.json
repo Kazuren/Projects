@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh Jesse, what could have happened to you…"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658086880.json",
+		"name": "EddieTalk"
+	}
+}

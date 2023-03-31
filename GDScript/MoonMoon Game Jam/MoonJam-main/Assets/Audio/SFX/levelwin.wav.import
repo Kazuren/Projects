@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/levelwin.wav-f910e5d03b509978f01327e0f8fc9f76.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/levelwin.wav"
+dest_files=[ "res://.import/levelwin.wav-f910e5d03b509978f01327e0f8fc9f76.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

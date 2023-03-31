@@ -1,0 +1,123 @@
+{
+	"events": [
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now that I’ve obtained the Giga Cum Chalice of Hell, surely there’s no way that there’s something even more powerful out there left for me to seek."
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey, word around the town is that you beat the Devil himself to get the Giga Cum Chalice of Hell, and I couldn’t help but overhear that you’re already craving for a bigger prize."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah, what of it?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What if I told you that I know of an even more powerful relic, one even more powerful than the Giga Cum Chalice of Hell?"
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm interested. What is it?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's the Giga Cum Chalice of Hell 2."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No… There can’t be a second one."
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But it’s true, an old friend of mine went on a grand journey to search for it."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Judging by the way you’re speaking, your friend didn’t get it did he?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That I don’t know. Ever since he embarked on his adventure, I never saw him again."
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He was a good man, even if he was called assboy by everyone else. Seeked out the chalice in hopes of fixing his receding hairline and balding head."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I will look for the chalice myself then! If I can beat the Devil, then finding this second chalice should be cakewalk!"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now hold on young Borpa, only I know where you need to go to find the chalice, since I am the one who helped my friend plan his adventure."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay, I will trust your judgment then, uh, what’s your name?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eddie. And to reach the chalice itself, you must reach the heart of the Giga Factory and take its rocket to a specific location in the cosmos."
+		},
+		{
+			"character": "character-1657908112.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Alright, then I’ll be off as soon as I can. Will you be coming with me Eddie?"
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No, I’m far too old now for adventures of my own, but you are smart enough to find your way even without my physical presence. I’ll be able to call you when needed. "
+		},
+		{
+			"character": "character-1658086442.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maybe you’ll find my long lost friend…"
+		},
+		{
+			"character": "character-1658086692.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "And so begins Borpa’s legendary quest for the Giga Cum Chalice of Hell 2."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1658086433.json",
+		"name": "EddieFirst"
+	}
+}

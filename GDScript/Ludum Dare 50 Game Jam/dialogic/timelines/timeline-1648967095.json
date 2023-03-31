@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What the hell was that creature!? It was human, but very clearly not either… [Scientist] better have some answers."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648967095.json",
+		"name": "MonsterDeath"
+	}
+}

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Nodes/Environment/Projectiles/CumMissile/CumMissile.gd" type="Script" id=1]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 2 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 14 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.0090909 ), 0.321212, 0.898305, 0, 1, Vector2( 0.556604, 0.509091 ), 0.898305, 0.246035, 1, 1, Vector2( 1, 0.618182 ), 0.246035, 0.0, 1, 0 ]
+
+[node name="CumMissile" type="Node2D"]
+script = ExtResource( 1 )
+speed = 18.0
+
+[node name="HitboxEnvironment" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnvironment"]
+position = Vector2( 32, 0 )
+shape = SubResource( 6 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 2 )]
+collision_layer = 0
+collision_mask = 0
+damage = 3
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 32, 0 )
+shape = SubResource( 8 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0.327226, 4.26667, -2.63183, 8.53333, -3.99445, 12.8, -2.93409, 17.0667, -0.0939536, 21.3333, 2.80317, 25.6, 3.99993, 29.8667, 2.77039, 34.1333, -0.139639, 38.4, -2.96496, 42.6667, -3.99178, 46.9333, -2.59724, 51.2, 0.372755, 55.4667, 3.11664, 64, 0 )
+width = 28.0
+width_curve = SubResource( 5 )
+default_color = Color( 1.2, 1.2, 1.2, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Start" type="Position2D" parent="Line2D"]
+
+[node name="End" type="Position2D" parent="Line2D"]
+position = Vector2( 64, 0 )
+
+[editable path="Hitbox"]

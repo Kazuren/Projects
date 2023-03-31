@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Scenes/Level 5/Tentacle/Tentacle.gd" type="Script" id=1]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.gd" type="Script" id=2]
+[ext_resource path="res://src/Scenes/Level 5/headmantenticle3.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 64.0
+height = 1772.0
+
+[node name="Tentacle" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+script = ExtResource( 2 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -960, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PoolVector2Array( -12, -48, -76, -20, -168, -48, -212, -28, -364, -36, -504, -68, -728, -48, -896, -20, -1456, -28, -1656, -44, -1768, -36, -1920, -36, -1920, 60, -1648, 64, -1396, 44, -1096, 60, -652, 56, -520, 28, -244, 60, -60, 60 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+offset = Vector2( -960, 0 )

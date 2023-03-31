@@ -1,0 +1,122 @@
+{
+	"events": [
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Is everything okay? You look worse for wear compared to yesterday."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well I’m not feeling well to begin with, but also one of my closest friends just crashed his Mustang GT, died violently, and his wife and daughter are barely hanging onto life!!"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "My condolences, truly. Did you notice anything odd on the way here?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Actually, yeah. There was a lot of dangerous hazards that looked life threatening."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh no… Oh dear… This is just as I feared."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What’s going on??"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "During our experiments with the prototype, we found that those who used the machine had their loved ones either come down with odd illnesses or pass away outright. On top of that, the areas surrounding the location of the machine became distorted as well."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Why didn’t you tell me this beforehand!?"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, for one, we thought the issue was fixed near the end of testing as it was assumed to be a simple glitch with time traveling. I also didn’t want to add more stress to your already dire condition as is."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I can’t believe this…"
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well, we can stop here if this is enough concern for you. But that also means there won’t be enough time for me to save your life before it’s too late."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fuck… I guess we have to carry on."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well, go ahead and step in the machine again."
+		},
+		{
+			"character": "character-1648885595.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hang on tight."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1.0"
+				],
+				"method_name": "fade_in",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "fade_out",
+				"target_node_path": "ScreenFader"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"change_scene": "res://src/Scenes/Home3/Home3.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648965745.json",
+		"name": "Lab3"
+	}
+}

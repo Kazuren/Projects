@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/fonts/montreal/Montreal96.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Interface/MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/fonts/montreal/Montreal48.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/fonts/montreal/Montreal32Bold.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 854.0
+margin_top = 374.0
+margin_right = 1065.0
+margin_bottom = 706.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
+margin_right = 290.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 1 )
+text = "Borpa"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 211.0
+margin_bottom = 332.0
+custom_constants/separation = 64
+
+[node name="PlayButton" type="ToolButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 211.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 50 )
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../SettingsButton")
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.478431, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = SubResource( 1 )
+text = "Play"
+
+[node name="SettingsButton" type="ToolButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 211.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 50 )
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.478431, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = SubResource( 1 )
+text = "Settings"
+
+[node name="ExitButton" type="ToolButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 264.0
+margin_right = 211.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 200, 50 )
+focus_neighbour_top = NodePath("../SettingsButton")
+focus_neighbour_bottom = NodePath("../PlayButton")
+custom_colors/font_color = Color( 0.443137, 0.443137, 0.478431, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = SubResource( 1 )
+text = "Exit"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -691.0
+margin_top = -152.0
+custom_constants/margin_right = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 659.0
+margin_bottom = 128.0
+custom_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 659.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Kazuren: Programming, Level Design, UI"
+align = 2
+valign = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 659.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "BattleToast: Writing, Music, Level Design"
+align = 2
+valign = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 659.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "PotentialNova: Music, Art, SFX"
+align = 2
+valign = 2

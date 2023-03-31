@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/Nodes/Enemy/Snorpa/Snorpa.gd" type="Script" id=1]
+[ext_resource path="res://src/Nodes/Enemy/Snorpa/Snorpa.png" type="Texture" id=2]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hurtbox/Hurtbox.gd" type="Script" id=3]
+[ext_resource path="res://src/Nodes/Hitboxes and Hurtboxes/Hitbox/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Shaders/white.shader" type="Shader" id=5]
+[ext_resource path="res://Assets/Audio/SFX/enemyshoot.wav" type="AudioStream" id=6]
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/active = false
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 52, 38 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 40, 32.5 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 33 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Snorpa" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 144
+script = ExtResource( 1 )
+shoot_sfx = ExtResource( 6 )
+health = 6
+speed = 50
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Hitbox" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( 13, 0 )
+remote_path = NodePath("../../Hitbox")
+
+[node name="Hurtbox" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( 13, 0 )
+remote_path = NodePath("../../Hurtbox")
+
+[node name="CollisionShape" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( -3, -33 )
+remote_path = NodePath("../../CollisionShape2D")
+
+[node name="FRCL" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( -43, 0 )
+remote_path = NodePath("../../FloorRayCastLeft")
+update_rotation = false
+update_scale = false
+
+[node name="FRCR" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( 37, 0 )
+remote_path = NodePath("../../FloorRayCastRight")
+
+[node name="RCL" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( -43, -3 )
+remote_path = NodePath("../../RayCastLeft")
+
+[node name="RCR" type="RemoteTransform2D" parent="Pivot"]
+position = Vector2( 37, -3 )
+remote_path = NodePath("../../RayCastRight")
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+material = SubResource( 4 )
+position = Vector2( 13, -29 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -22 )
+
+[node name="DeathEffectPosition" type="Position2D" parent="."]
+position = Vector2( 0, -51 )
+
+[node name="BulletSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 0, -29 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2( 13, 0 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -4, -38 )
+shape = SubResource( 2 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( 13, 0 )
+collision_layer = 0
+script = ExtResource( 4 )
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -16, -33.5 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3, -33 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AI" type="Node2D" parent="."]
+
+[node name="FloorRayCastLeft" type="RayCast2D" parent="."]
+position = Vector2( -43, 0 )
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 144
+
+[node name="FloorRayCastRight" type="RayCast2D" parent="."]
+position = Vector2( 37, 0 )
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 144
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2( -43, -3 )
+enabled = true
+cast_to = Vector2( -1, 0 )
+collision_mask = 16
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2( 37, -3 )
+enabled = true
+cast_to = Vector2( 1, 0 )
+collision_mask = 16
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 9, -38 )
+scale = Vector2( 6.05, 4.7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 7 )
+anims/RESET = SubResource( 8 )

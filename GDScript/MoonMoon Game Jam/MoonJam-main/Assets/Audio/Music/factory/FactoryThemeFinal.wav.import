@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FactoryThemeFinal.wav-537cc3d6103a5d9688a08c61bc934820.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/factory/FactoryThemeFinal.wav"
+dest_files=[ "res://.import/FactoryThemeFinal.wav-537cc3d6103a5d9688a08c61bc934820.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

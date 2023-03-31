@@ -1,0 +1,21 @@
+{
+	"events": [
+		{
+			"character": "character-1649058784.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey, you work for the government right? Tell them to give me bigger subsidies this year. We farmers have TEGRIDY!"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649058712.json",
+		"name": "FarmerInteraction"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648906032.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey honey, don't be out too long, okay? I'm making your favorite meal of boiled chicken breast tonight for dinner, and for dessert, I baked a chocolate cake earlier this morning."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649052616.json",
+		"name": "Home1-WifeExtra"
+	}
+}

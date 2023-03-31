@@ -1,0 +1,39 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy! Let's watch the new Episode of My Little Donkey later! Donkey-"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "And his green ogre friend teach about friendship?"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That's right, but how did you know?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I-uh, daddy keeps up because he knows you love the show!\n"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Aw, I love you daddy!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1649053479.json",
+		"name": "Home2-DaughterExtra"
+	}
+}

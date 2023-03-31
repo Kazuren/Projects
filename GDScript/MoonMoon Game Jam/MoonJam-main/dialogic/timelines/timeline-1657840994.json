@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1658086790.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Until next time, matey!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.3",
+		"file": "timeline-1657840994.json",
+		"name": "InventoryEnd"
+	}
+}

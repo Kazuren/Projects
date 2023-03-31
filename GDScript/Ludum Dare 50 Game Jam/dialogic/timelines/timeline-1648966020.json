@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s Saturday. Looks like I made it back again just fine. The world’s starting to look treacherous more and more. I should bring my [color=#cf573c][shake rate=10 level=10]gun[/shake][/color] with me just to be safe."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648966020.json",
+		"name": "Home3-Thought"
+	}
+}

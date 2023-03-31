@@ -1,0 +1,75 @@
+{
+	"events": [
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy, where’s mommy?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Huh? I’m not sure sweetheart. Is mommy not at home?"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mommy said she went out to buy groceries, but she hasn’t come back yet…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "How long has it been sweetie?"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Since this morning…"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "(Oh no… Please…)"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don’t worry pumpkin. I’m sure mommy is fine. She’ll surely be home soon."
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Daddy has to leave, but I’ll be home again later, okay? I’ll watch [TV Show] with you when I get home. Just sit tight and don’t let any strangers in okay?"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay daddy. But how did you know I wanted to watch [TV Show] today?"
+		},
+		{
+			"character": "character-1648801895.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I-um, that’s because you always want to watch [TV Show] sweetheart. Anyways, daddy will be back later okay?"
+		},
+		{
+			"character": "character-1648906024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay. Be safe daddy."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1648966675.json",
+		"name": "Home3-Daughter"
+	}
+}
