@@ -1,0 +1,63 @@
+.terms {
+  padding: 1rem;
+  background-color: $bg-color;
+  border-radius: 1px;
+  border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+  h2 {
+    font-size: 1.625rem;
+    color: $body-color;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.25rem;
+    color: $body-color;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    color: $body-color;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    &:last-child {
+      margin-bottom: 0rem;
+    }
+  }
+  ol {
+    padding-left: 1rem;
+    list-style: lower-alpha;
+    ol {
+      margin-top: 0.5rem;
+      list-style: lower-roman;
+    }
+  }
+  li {
+    font-size: 1rem;
+    color: $body-color;
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+  a {
+    color: $link-color;
+  }
+}
+body.nightmode {
+  .terms {
+    background-color: $bg-color-nightmode;
+    border-color: rgba($color: $body-color-nightmode, $alpha: 0.2);
+    h2, h3 {
+      color: $body-color-nightmode;
+    }
+    p {
+      color: $body-color-nightmode;
+    }
+    li {
+      color: $body-color-nightmode;
+    }
+    a {
+      color: $link-color;
+    }
+  }
+}

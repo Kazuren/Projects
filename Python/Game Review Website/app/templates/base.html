@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=7pj365apmh44yk6udvkx1q6sd9zyvituu7wx8yv94oi5m9i3'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css "href="{{ url_for('static', filename='styles/bootstrap-4.1/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css "href="{{ url_for('static', filename='styles/css/main.css') }}">
+    {% if title %}
+      <title>Game Blap - {{ title }}</title>
+    {% else %}
+      <title>Game Blap</title>
+    {% endif %}
+  </head>
+  <body>
+    {% include 'components/_navbar.html' %}
+    <div class="body">
+      {% if current_user.is_authenticated %}
+        {% with tasks = current_user.get_tasks_in_progress() %}
+          {% if tasks %}
+            {% for task in tasks %}
+              <div id="{{ task.id }}" class="alert alert-success" role="alert">
+                {{ task.description }}
+                <span id="task-{{ task.id }}-progress">{{ task.get_progress() }}%</span>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="list-unstyled">
+            {% for message in messages %}
+              <li>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  <p class="mb-0">{{ message }}</p>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+    {% include 'components/_footer.html' %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    {{ moment.include_moment() }}
+    <script src="{{ url_for('static', filename='scripts/jquery-bar-rating.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/htmldiff.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+  </body>
+</html>

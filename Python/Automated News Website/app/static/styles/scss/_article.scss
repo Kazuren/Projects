@@ -1,0 +1,108 @@
+.articles {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-row-gap: 1rem;
+  grid-column-gap: 0rem;
+  .article {
+    padding: 1rem;
+    background-color: $bg-color;
+    border-radius: 1px;
+    font-family: $serif;
+    border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+    overflow: hidden;
+    .byline-section {
+      display: inline-flex;
+      flex-direction: column;
+    }
+    .author {
+      font-size: 20px;
+      font-weight: 700;
+      color: $body-color; // Author doesn't exist yet
+      &::after {
+        content: "|";
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0 10px;
+      }
+    }
+    .source {
+      display: table;
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba($body-color, 0.8);
+      text-decoration: none;
+      &:hover {
+        color: $body-color;
+      }
+    }
+    .timestamp {
+      color: rgba($body-color, 0.8);
+      text-decoration: none;
+    }
+    .title {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: $body-color;
+      font-family: $title-font-family;
+      a {
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        text-decoration: inherit;
+        font-family: inherit;
+      }
+      &::after {
+        background-color: $link-color;
+        content: "";
+        display: block;
+        height: 8px;
+        margin-top: 16px;
+        width: 50px;
+      }
+    }
+    .body {
+      line-height: 1.8;
+      color: $body-color;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      br {
+        display: block;
+        margin-top: 1.25rem;
+        content: "";
+      }
+    }
+  }
+}
+
+// Nightmode colors
+body.nightmode {
+  .article {
+    background-color: $bg-color-nightmode;
+    border-color: rgba($color: $body-color-nightmode, $alpha: 0.2);
+    .author {
+      color: $body-color-nightmode;
+    }
+    .source {
+      color: rgba($body-color-nightmode, 0.8);
+      &:hover {
+        color: $body-color-nightmode;
+      }
+    }
+    .timestamp {
+      color: rgba($body-color-nightmode, 0.8);
+    }
+    .title {
+      color: $body-color-nightmode;
+      &::after {
+        background-color: $link-color;
+      }
+    }
+    .body {
+      color: $body-color-nightmode;
+    }
+  }
+}

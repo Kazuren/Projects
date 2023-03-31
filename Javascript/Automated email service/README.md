@@ -1,0 +1,3 @@
+Made with React, Node.js, Express, Mongoose
+
+Website that allows the user to query google for websites using https://serpapi.com/ and find the emails associated with the domains of those websites with https://snov.io/ which are used to send emails in bulk with googles gmail api (https://developers.google.com/gmail/api/guides) using any kind of template which can be created within the website with a "WYSIWYG" text editor (https://ckeditor.com/)

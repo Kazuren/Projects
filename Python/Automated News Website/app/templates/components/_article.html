@@ -1,0 +1,12 @@
+<article class="article">
+  <h1 class="title"><a href="{{ url_for('main.article', article_id=article.id) }}">{{ article.title }}</a></h1> {#{ article.url }#}
+  <div class="byline-section">
+    <a href="{{ url_for('main.source', source_id=article.source.id) }}" class="source mb-1">{{ article.source.name }}</a>
+    <div class="timestamp">{{ moment(article.timestamp).format('LLLL') }}</div>
+  </div>
+  {% if not route == "/" and not route == "/sources/source/" %}
+    <div class="body">
+      {{ article.body|safe }}
+    </div>
+  {% endif %}
+</article>

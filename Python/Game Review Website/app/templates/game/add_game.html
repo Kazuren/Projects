@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% set active_page = "add_game" %}
+
+{% block content %}
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.url.label }}
+        {{ form.url(cols=6, rows=2, class_="form-control", placeholder="Eg. https://store.steampowered.com/app/884260/Akane/") }}
+    </div>
+    {% for error in form.url.errors %}
+      {% include 'components/_error.html' %}
+    {% endfor %}
+    <p>{{ form.submit(class_="btn btn-outline-primary") }}</p>
+  </form>
+{% endblock %}

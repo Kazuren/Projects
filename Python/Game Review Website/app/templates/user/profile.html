@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-page mx-auto bg-light p-2 rounded-sm">
+  {% if reviews|length > 0 %}
+    <div>
+      <h2 class="title mb-0">Reviews</h2>
+      {% include 'components/_pagination.html' %}
+      <div class="reviews-grid">
+        {% for review in reviews %}
+          {% include 'components/_review.html' %}
+        {% endfor %}
+      </div>
+      {% include 'components/_pagination.html' %}
+    </div>
+  {% else %}
+    {% if user == current_user %}
+      <h2 class="title mb-0">You have not written any reviews</h2>
+    {% else %}
+      <h2 class="title mb-0">This user has not written any reviews</h2>
+    {% endif %}
+  {% endif %}
+
+
+
+
+  {{ user.followers.count() }} followers, {{ user.following.count() }} following
+  {% if not current_user.is_anonymous %}
+    {% if current_user != user %}
+      {% if not current_user.is_following(user) %}
+        <a href="{{ url_for('user.follow', username=user.username) }}">Follow</a>
+      {% else %}
+        <a href="{{ url_for('user.unfollow', username=user.username) }}">Unfollow</a>
+      {% endif %}
+      <a href="{{ url_for('user.send_message', recipient=user.username) }}">Send private message</a>
+    {% else %}
+      {% if not current_user.get_task_in_progress('export_reviews') %}
+        <a href="{{ url_for('user.export_reviews') }}">Export your reviews</a>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}

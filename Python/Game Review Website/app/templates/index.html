@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% set active_page = "home" %}
+
+{% block content %}
+  <div>
+    <div class="mb-5">
+      <h2 class="mb-3 text-primary font-weight-bold">Most active games</h2>
+      <div class="game-grid">
+        {% for game in active_games %}
+          {% include 'components/_gamecard.html' %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="mb-5">
+      <h2 class="mb-3 text-primary font-weight-bold">Top rated games</h2>
+      <div class="game-grid">
+        {% for game in top_rated_games %}
+          {% include 'components/_gamecard.html' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

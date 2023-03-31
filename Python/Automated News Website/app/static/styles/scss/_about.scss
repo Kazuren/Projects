@@ -1,0 +1,33 @@
+.about {
+  padding: 1rem;
+  background-color: $bg-color;
+  border-radius: 1px;
+  border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+  h2 {
+    font-size: 1.625rem;
+    color: $body-color;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1rem;
+    color: $body-color;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    &:last-child {
+      margin-bottom: 0rem;
+    }
+  }
+}
+body.nightmode {
+  .about {
+    background-color: $bg-color-nightmode;
+    border-color: rgba($color: $body-color-nightmode, $alpha: 0.2);
+    h2 {
+      color: $body-color-nightmode;
+    }
+    p {
+      color: $body-color-nightmode;
+    }
+  }
+}

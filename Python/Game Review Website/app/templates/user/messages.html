@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div>
+    <h1>Messages</h1>
+    {% include 'components/_pagination.html' %}
+    {% for message in messages %}
+      {{ message.body }}
+      {{ message.timestamp }}
+    {% endfor %}
+    {% include 'components/_pagination.html' %}
+  </div>
+{% endblock %}

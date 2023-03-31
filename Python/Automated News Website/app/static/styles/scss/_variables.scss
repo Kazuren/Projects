@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+
+$sans-serif: 'Roboto', 'Helvetica', 'Arial', 'Verdana', sans-serif;
+$serif: 'Roboto Slab', 'Times New Roman', 'Georgia', serif;
+$title-font-family: $sans-serif;
+$body-font-family: $serif;
+
+// Body
+$body-bg: #f2f2f2;
+$body-bg-nightmode: #030303;
+
+
+$link-color: #009bff;
+
+$bg-color: #fff;
+$bg-color-nightmode: #1a1a1b;
+
+$body-color: mix(#333, $link-color, 80%);// #333;
+$body-color-nightmode: mix(#ccc, $link-color, 95%);// #ccc;
+
+/*
+$article-title: rgba($color: $body-color, $alpha: 0.9);
+$article-title-nightmode: rgba($color: $body-color-nightmode, $alpha: 0.9);
+
+$article-author: rgba($color: $body-color, $alpha: 0.8);
+$article-author-nightmode: rgba($color: $body-color-nightmode, $alpha: 0.8);
+
+$article-source: rgba($color: $body-color, $alpha: 0.8);
+$article-source-nightmode: rgba($color: $body-color-nightmode, $alpha: 0.8);
+
+$article-timestamp: rgba($color: $body-color, $alpha: 0.7);
+$article-timestamp-nightmode: rgba($color: $body-color-nightmode, $alpha: 0.7);
+
+
+$article-body: $body-color;
+$article-body-nightmode: $body-color-nightmode;
+*/

@@ -1,0 +1,51 @@
+<nav class="pagination">
+  {% if prev_url %}
+    <a href="{{ prev_url or '#' }}" class="page-link previous">
+      <i class="fas fa-angle-left"></i> <span>Previous</span>
+    </a>
+  {% else %}
+    <div class="page-link previous disabled">
+      <i class="fas fa-angle-left"></i> <span>Previous</span>
+    </div>
+  {% endif %}
+
+  <div class="pages">
+    <a href="{{ first_page or '#' }}" class="page-link {% if page == 1 %} active {% endif %}">1</a>
+    
+    {% if page - 1 >= 3 %}
+      <span class="dots">...</span>
+    {% endif %}
+
+
+    {% if prev_url and not page - 1 == 1 %}
+      <a href="{{ prev_url or '#' }}" class="page-link">{{ page - 1}}</a>
+    {% endif %}
+
+    {% if not page == 1 and not page == pages%}
+      <a href="{{ current_page }}" class="page-link active">{{ page }}</a>
+    {% endif %}
+
+    {% if next_url and not page + 1 == pages %}
+      <a href="{{ next_url or '#' }}" class="page-link">{{ page + 1}}</a>
+    {% endif %}
+
+
+    {% if pages - page >= 3 %}
+      <span class="dots">...</span>
+    {% endif %}
+
+    {% if pages > 1 %}
+      <a href="{{ last_page or '#' }}" class="page-link {% if page == pages %}active{% endif %}">{{ pages }}</a>
+    {% endif %}
+    </div>
+
+  {% if next_url %}
+    <a href="{{ next_url or '#' }}" class="page-link next">
+      <span>Next</span> <i class="fas fa-angle-right"></i>
+    </a>
+  {% else %}
+    <div class="page-link next disabled">
+      <span>Next</span> <i class="fas fa-angle-right"></i>
+    </div>
+  {% endif %}
+</nav>

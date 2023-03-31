@@ -1,0 +1,7 @@
+Dear {{ user.username }},
+
+Please find attached the archive of your reviews that you requested.
+
+Sincerely,
+
+The Blapblap Team

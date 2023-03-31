@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if route == "/sources/source/" %}
+      <meta name="description" content="{{ source.description }}">
+    {% elif route == "/articles/article/" %}
+      <meta name="description" content="{{ article.body }}">
+    {% elif route =="/sources/" %}
+      <meta name="description" content="{% for source in sources -%}{{ source.name }}, {% endfor %}">
+    {% elif route =="/contact/" %}
+      <meta name="description" content="Contact information: tldrfeedcontact@gmail.com">
+    {% else %}
+      <meta name="description" content="Tldrfeed creates summaries of news articles from over 60 news sources.">
+    {% endif %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/css/main.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% if title %}
+      <title>{{ title }} &middot; Tldrfeed</title>
+    {% else %}
+      <title>Tldrfeed</title>
+    {% endif %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132402185-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-132402185-1');
+    </script>
+  </head>
+  <body>
+    <script>
+      let body = document.querySelector('body')
+      let nightmode = localStorage.getItem('nightmode');
+      if (JSON.parse(nightmode) === true) {
+        body.classList.add('nightmode');
+      }
+    </script>
+    {% include 'components/_navbar.html' %}
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+    {% include 'components/_footer.html' %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    {{ moment.include_moment() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+  </body>
+</html>

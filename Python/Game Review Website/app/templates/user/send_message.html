@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-light p-2 rounded-sm border border-gray">
+  <h1>Send Message to {{ recipient }}</h1>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.message(class_="form-control", placeholder="Send a message") }}
+    </div>
+    {% for error in form.message.errors %}
+      {% include 'components/_error.html' %}
+    {% endfor %} 
+    {{ form.submit(class_="btn btn-outline-primary") }}
+  </form>
+</div>
+{% endblock %}

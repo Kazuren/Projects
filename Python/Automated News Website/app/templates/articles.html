@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if source %}
+    <div class="source-info mb-2">
+      <h1 class="title mb-2">{{ source.name }}</h1>
+      <div class="info mb-2">
+        <div class="language">{{ source.country.language }}</div>
+        <div class="country">{{ source.country.name }}</div>
+        <div class="category">{{ source.category }}</div>
+        <a href="{{ source.url }}" class="url">{{ source.url }}</a>
+      </div>
+      <div class="description">{{ source.description }}</div>
+    </div>
+  {% endif %}
+  {% if q %}
+  <div class="query_results">
+    <div>
+      Showing search results for "<span class="query">{{ q }}</span>"
+    </div>
+    {% if source %}
+      <a href="{{ url_for(request.endpoint, source_id=source.id) }}">
+        <i class="fas fa-times"></i>
+      </a>
+    {% else %}
+      <a href="{{ url_for(request.endpoint, **kwargs_without_query) }}">
+        <i class="fas fa-times"></i>
+      </a>
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="flex">
+    {% if form %}
+      <button id="modal_opener"><i class="fas fa-sliders-h"></i>Filters</button>
+      <div class="modal" style="display: none">
+        <div class="overlay"></div>
+        <div class="modal_content">
+          <!-- Dynamic Section -->
+          {% include 'components/_filterform.html' %}
+          <!-- End of Dynamic Section -->
+          <button title="Close" class="close_modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+    <form class="search-form">
+      <input type="search" class="search" placeholder="Search..." name="q" autocomplete="off"/>
+      <i class="fas fa-search search-icon"></i>
+    </form>
+  </div>
+  {% include 'components/_pagination.html' %}
+  <div class="articles">
+    {% for article in articles %}
+      {% include 'components/_article.html' %}
+      {% if loop.index % 3 == 0 %}
+        {% include 'components/_ad.html' %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% include 'components/_pagination.html' %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="edit-page mx-auto bg-light p-2 rounded-sm">
+  <h2 class="title mb-0">Edit</h2>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.content(cols=32, rows=4, class_="form-control", id="editor") }}
+    </div>
+    {% for error in form.content.errors %}
+      {% include 'components/_error.html' %}
+    {% endfor %}
+    <div class="form-group text-center">
+      {{ form.rating.label(class_="review-form-rating-label") }}
+      {{ form.rating(id="star-rating", class_="form-control") }}
+      <span class="current-rating d-none">
+        Current rating: <span class="value">{{ game.avg_rating }}</span>
+      </span>
+      <span class="your-rating">
+        Your rating: <span class="value">{{ review.rating }}</span>&nbsp;
+        <a href="#" class="clear-rating"><i class="fas fa-times-circle"></i></a>
+      </span>
+    </div>
+    {% for error in form.rating.errors %}
+      {% include 'components/_error.html' %}
+    {% endfor %}
+    {{ form.submit(class_="btn btn-outline-primary") }}
+  </form>
+</div>
+{% endblock %}

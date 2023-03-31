@@ -1,0 +1,42 @@
+.navbar {
+  display: block;
+  background-color: $bg-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba($color: $body-color, $alpha: 0.2);
+  @media only screen and (min-width: 768px) { 
+    padding: 1rem 1rem;
+  }
+  a {
+    color: $link-color;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+body.nightmode {
+  .navbar {
+    background-color: $bg-color-nightmode;
+    border-color: rgba($color: $body-color-nightmode, $alpha: 0.2);
+  }
+}

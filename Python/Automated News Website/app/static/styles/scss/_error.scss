@@ -1,0 +1,28 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 32px;
+    color: $body-color;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: $body-color;
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: $link-color;
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+}
+body.nightmode {
+  .error {
+    h1, p {
+      color: $body-color-nightmode;
+    }
+  }
+}

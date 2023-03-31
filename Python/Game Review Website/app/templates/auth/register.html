@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% set active_page = "register" %}
+
+{% block content %}
+  <div class="register-page mx-auto bg-light p-2 rounded-sm">
+    <h2 class="title">Sign Up</h2>
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username(class="form-control") }}
+        {% for error in form.username.errors %}
+          {% include 'components/_error.html' %}
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class="form-control") }}
+        {% for error in form.email.errors %}
+          {% include 'components/_error.html' %}
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class="form-control") }}
+        {% for error in form.password.errors %}
+          {% include 'components/_error.html' %}
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.password2.label }}
+        {{ form.password2(class="form-control") }}
+        {% for error in form.password2.errors %}
+          {% include 'components/_error.html' %}
+        {% endfor %}
+      </div>
+      <p>{{ form.recaptcha }}</p>
+      <p>{{ form.submit(class="btn btn-primary") }}</p>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('auth.login') }}">Log in</a></p>
+    <div>By signing up, you agree to our <a href="{{ url_for('auth.terms') }}">Terms &amp; Conditions</a> and that you have read our <a href="{{ url_for('auth.privacy') }}">Privacy Policy</a>.</div>
+  </div>
+{% endblock %}

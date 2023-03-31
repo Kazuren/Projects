@@ -1,0 +1,34 @@
+{
+  "name": "automaton",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Kazuren/automaton.git",
+  "author": "Alex Grammatikopoulos <alexandrosgramma@gmail.com>",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "googleapis": "39",
+    "he": "^1.2.0",
+    "helmet": "^4.6.0",
+    "html-to-text": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mimetext": "^2.0.6",
+    "mongoose": "^6.1.3",
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "v16.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,50 @@
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  min-height: 100%;
+  padding: 4rem 1rem 5rem; // top (right left) bottom
+  @media only screen and (min-width: 768px) { 
+    padding: 5rem 1rem 5rem; // top (right left) bottom
+  }
+  margin: 0;
+  background-color: $body-bg;
+  font-family: $sans-serif;
+}
+body.nightmode {
+  background-color: $body-bg-nightmode;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.content {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.hidden {
+  display: none;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}

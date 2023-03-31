@@ -1,0 +1,163 @@
+<div data-id="{{ review.id }}" class="review d-flex flex-column overflow-hidden whitespace-no-wrap bg-light position-relative">
+  <div class="d-flex p-2"> <!-- Header -->
+    <div class="d-flex flex-column justify-content-between">
+      <div class="review-votes d-flex align-items-center flex-column 
+      {% if not current_user.is_anonymous %}
+        {% if not current_user == review.author %}
+          {% if review.is_upvoted(current_user) %} upvoted {% endif %} {% if review.is_downvoted(current_user) %} downvoted {% endif %}
+        {% endif %}
+      {% endif %}
+      "> 
+        <button 
+          {% if current_user.is_anonymous %}
+            tabindex="0" 
+            data-toggle="popover" 
+            data-placement="top" 
+            data-content="You need to login to upvote" 
+            data-trigger="hover | focus"
+          {% else %}
+            {% if current_user == review.author %}
+              tabindex="0" 
+              data-toggle="popover" 
+              data-placement="top" 
+              data-content="You can't upvote yourself!" 
+              data-trigger="hover | focus" 
+            {% endif %}
+          {% endif %} 
+          class="up-arrow 
+          {% if not current_user.is_anonymous %}
+            {% if not current_user == review.author %}
+              upvote
+            {% endif %}
+          {% endif %}"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" height="20px" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve"><g id="background"><rect fill="none" height="20" width="20"/></g><g id="arrow_x5F_full_x5F_up"><polygon points="2,16 9.999,16 9.999,30 21.999,30 21.999,16 29.999,16 15.999,2  "/></g></svg>
+        </button>
+        <div class="votes"><span class="vote-count">{{ review.score }}</span></div>
+        <button
+          {% if current_user.is_anonymous %} 
+            tabindex="0" 
+            data-toggle="popover" 
+            data-placement="top" 
+            data-content="You need to login to downvote" 
+            data-trigger="hover | focus" 
+          {% else %}
+            {% if current_user == review.author %}
+              tabindex="0" 
+              data-toggle="popover" 
+              data-placement="top" 
+              data-content="You can't downvote yourself!" 
+              data-trigger="hover | focus" 
+            {% elif current_user.reputation < 25 %}
+              tabindex="0" 
+              data-toggle="popover" 
+              data-placement="top" 
+              data-content="You must have at least 25 reputation to downvote reviews" 
+              data-trigger="hover | focus" 
+            {% endif %}
+          {% endif %}
+          class="down-arrow
+          {% if not current_user.is_anonymous %}
+            {% if not current_user == review.author %}
+              {% if current_user.reputation >= 25 %}
+                downvote
+              {% endif %}
+            {% endif %}
+          {% endif %}
+          "
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" height="20px" version="1.1" viewBox="0 0 32 32" width="20px" xml:space="preserve"><g id="background"><rect fill="none" height="20" width="20"/></g><g id="arrow_x5F_full_x5F_down"><polygon points="29.998,16 22,16 22,2 9.999,2 9.999,16 1.999,16 15.999,30  "/></g></svg>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-start flex-fill overflow-hidden ml-2">
+      <div class="overflow-hidden whitespace-normal d-flex align-items-center mb-1">
+        <a class="review-author mb-0" href="{{ url_for('user.profile', username=review.author.username) }}" >{{ review.author.username }}</a>  
+        {% if review.timestamp != review.original_timestamp %} {# This is a hack because review.timestamp only changes if 7 days have passed and they are 0.00001 seconds different otherwise so I cant use equality sign#}
+          <span class="review-last-edited d-inline-block">last edited {{ moment(timestamp=review.timestamp).fromNow(refresh=true) }}</span>
+        {% endif %}
+      </div>
+      <div class="d-flex align-items-center overflow-hidden whitespace-normal mb-1">
+        <div class="review-rating d-flex align-items-center mr-1">
+          <div class="{% if review.rating >= 1 %}star-selected{% endif %}"></div>
+          <div class="{% if review.rating >= 2 %}star-selected{% endif %}"></div>
+          <div class="{% if review.rating >= 3 %}star-selected{% endif %}"></div>
+          <div class="{% if review.rating >= 4 %}star-selected{% endif %}"></div>
+          <div class="{% if review.rating >= 5 %}star-selected{% endif %}"></div>
+        </div>
+        <span class="review-timestamp d-inline-block">{{ moment(review.original_timestamp).format('LL') }}</span>
+      </div>
+      {% if not game %}
+        {% if review.game %}
+          <div class="d-flex justify-content-between">
+            <a class="text-muted mb-0 text-truncate" href="{{ url_for('game.game', slug=review.game.slug) }}">{{ review.game.title }}</a>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+  <div class="review-body p-2"> <!-- Body -->
+    {{ review.body|safe }}
+  </div>
+  {% if review.revisions.count() > 0 or current_user == review.author %}
+    <div class="review-footer-links d-flex justify-content-between p-2">
+      <div class="d-flex">
+        {% if review.revisions.count() > 0 %}
+          <span class="d-flex">
+            <a id="revisions" href="{{ url_for('game.revisions', slug=review.game.slug, username=review.author.username) }}">Revisions</a>
+          </span>
+        {% endif %}
+        {% if not current_user.is_anonymous %}  
+          {% if current_user == review.author %}
+            <span class="d-flex">
+              <a id="edit" href="{{ url_for('game.edit', slug=review.game.slug) }}">Edit</a>
+            </span>
+          {% endif %}
+        {% endif %}
+      </div>
+      {% if not current_user.is_anonymous %}  
+        {% if current_user == review.author %}
+          <a class="delete" id="delete-{{ review.id }}" data-target="#delete-{{ review.id }}-modal" data-toggle="modal" href="#">Delete</a>
+
+          <!-- Modal -->
+          <div class="modal fade" id="delete-{{ review.id }}-modal" tabindex="-1" role="dialog" aria-labelledby="#delete-{{ review.id }}-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title word-wrap-break-word whitespace-normal" id="delete-{{ review.id }}-modal-title">Are you sure you want to delete your review?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form
+                  action="
+                  {% if active_page == 'profile' %} 
+                    {{ url_for('user.delete_review', review_id=review.id) }}
+                  {% elif active_page == 'game' %}
+                    {{ url_for('game.delete_review', review_id=review.id) }}
+                  {% endif %}"
+                  method="POST"
+                >
+                  <div class="modal-body">
+                    {{ delete_review_form.hidden_tag() }}
+                    <div class="form-group">
+                      {{ delete_review_form.confirm.label() }}
+                      {{ delete_review_form.confirm(id=review.id, class_="form-control delete-review-input", maxlength="6") }}
+                      {% for error in delete_review_form.confirm.errors %}
+                        {% include 'components/_error.html' %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  {{ delete_review_form.submit(id=review.game.id, class_="btn btn-danger disabled delete-review-button") }}
+                </div>
+               </form>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

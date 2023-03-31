@@ -1,0 +1,263 @@
+.filter-form {
+  padding: 1.5rem;
+  background: $bg-color;
+  .input {
+    background: $bg-color;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: $body-color;
+    border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+    border-radius: 1px;
+    &:hover {
+      border-color: $link-color;
+      color: $link-color;
+      cursor: pointer;
+    }
+  }
+  .searchable {
+    background: $bg-color;
+    border: 1px solid rgba($body-color, 0.2);
+    color: $body-color;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    &:focus {
+      border-color: $link-color;
+    }
+  }
+  .sources-list {
+    max-height: 320px;
+    overflow-y: scroll;
+  }
+  .filter-sources, .filter-categories, .filter-publication_date {
+    &:not(:first-child) {
+      margin: 1rem 0;
+    }
+    .title {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+      text-decoration: none;
+      color: $body-color;
+      font-family: $title-font-family;
+    }
+  }
+  .custom-checkbox, .custom-radio {
+    position: relative;
+    display: block;
+    padding: 0.25rem 0rem 0.25rem 1.5rem;
+
+    .custom-control-input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+    .custom-control-label {
+      position: relative;
+      margin-bottom: 0;
+      vertical-align: top;
+      cursor: pointer;
+      color: $body-color;
+      &:hover {
+        color: $link-color;
+        &::before {
+          background: $bg-color;
+        }
+      }
+      &::before {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0.125rem;
+        left: -1.5rem;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        pointer-events: none;
+        content: "";
+        background: darken($bg-color, 5%);
+        border: rgba($color: $body-color, $alpha: 0.2) solid 1px;
+      }
+      &::after {
+        position: absolute;
+        top: 0.125rem;
+        left: -1.5rem;
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        content: "";
+        background: no-repeat 50%/50% 50%;
+      }
+    }
+    .custom-control-input:checked ~ .custom-control-label::before {
+      color: $bg-color;
+      border-color: $link-color;
+      background-color: $link-color;
+    }
+  }
+  .custom-checkbox {
+    .custom-control-label {
+      &::before {
+        border-radius: 0;
+      }
+    }
+    .custom-control-input:checked ~ .custom-control-label::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+  }
+  .custom-radio {
+    .custom-control-label {
+      &::before {
+        border-radius: 50%;
+      }
+    }
+    .custom-control-input:checked ~ .custom-control-label::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+  }
+}
+.search-form {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  background: $bg-color;
+  &:not(:first-child) {
+    margin-left: 0.5rem;
+  }
+  .search {
+    flex-grow: 1;
+    background: $bg-color;
+    padding: 0.75rem;
+    padding-right: 2.5rem;
+    font-size: 0.75rem;
+    border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+    border-radius: 1px;
+    color: $body-color;
+    @media only screen and (min-width: 480px) {
+      font-size: 1rem;
+    }
+
+    &:focus {
+      border-color: $link-color;
+      +i {
+        color: $link-color;
+      }
+    }
+  }
+  i {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    right: 0.5rem;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1rem;
+    color: rgba($color: $body-color, $alpha: 0.5);
+    @media only screen and (min-width: 480px) {
+      font-size: 1.25rem;
+      margin-top: -0.625rem;
+      right: 0.625rem;
+    }
+  }
+}
+.query_results {
+  position: relative;
+  padding: 1rem;
+  padding-right: 2rem;
+  background-color: $bg-color;
+  border-radius: 1px;
+  border: 1px solid rgba($color: $body-color, $alpha: 0.2);
+  margin-bottom: 0.5rem;
+  color: $body-color;
+  .query {
+    font-weight: 600;
+  }
+  a {
+    color: $body-color;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -12px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0.5;
+    background: none;
+    border: none;
+    transition: opacity 0.2s ease;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+body.nightmode {
+  .filter-form {
+    padding: 1.5rem;
+    background: $bg-color-nightmode;
+    .input {
+      background: $bg-color-nightmode;
+      color: $body-color-nightmode;
+      border: 1px solid rgba($body-color-nightmode, 0.2);
+      &:hover {
+        border-color: $link-color;
+        color: $link-color;
+      }
+    }
+    .filter-sources, .filter-categories, .filter-publication_date {
+      .title {
+        color: $body-color-nightmode;
+      }
+    }
+    .searchable {
+      background: $bg-color-nightmode;
+      border: 1px solid rgba($body-color-nightmode, 0.2);
+      color: $body-color-nightmode;
+    }
+    .custom-checkbox, .custom-radio {
+      .custom-control-label {
+        color: $body-color-nightmode;
+        &:hover {
+          color: $link-color;
+          &::before {
+            background: $bg-color-nightmode;
+          }
+        }
+        &::before {
+          background: darken($bg-color-nightmode, 5%);
+          border: rgba($body-color-nightmode, 0.2) solid 1px;
+        }
+      }
+      .custom-control-input:checked ~ .custom-control-label::before {
+        color: $bg-color-nightmode;
+        border-color: $link-color;
+        background-color: $link-color;
+      }
+    }
+  }
+  .search-form {
+    background: $bg-color-nightmode;
+    .search {
+      background: $bg-color-nightmode;
+      border: 1px solid rgba($color: $body-color-nightmode, $alpha: 0.2);
+      color: $body-color-nightmode;
+      &:focus {
+        border-color: $link-color;
+        +i {
+          color: $link-color;
+        }
+      }
+    }
+    i {
+      color: rgba($color: $body-color-nightmode, $alpha: 0.5);
+    }
+  }
+  .query_results {
+    background-color: $bg-color-nightmode;
+    border: 1px solid rgba($color: $body-color-nightmode, $alpha: 0.2);
+    color: $body-color-nightmode;
+    a {
+      color: $body-color-nightmode;
+    }
+  }
+}

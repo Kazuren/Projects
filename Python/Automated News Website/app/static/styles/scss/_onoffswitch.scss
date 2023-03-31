@@ -1,0 +1,61 @@
+.nightmode-switch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &.off {
+    &:hover {
+      &::before {
+        box-shadow: 
+        0px 0px 10px 10px rgba($color: #ffa300, $alpha: 0.4),
+        0px 0px 20px 20px rgba($color: lighten(#ffa300, 15%), $alpha: 0.3);
+      }
+    }
+    &::before {
+      box-shadow: 
+        0px 0px 10px 10px rgba($color: #ffa300, $alpha: 0.3),
+        0px 0px 20px 20px rgba($color: lighten(#ffa300, 15%), $alpha: 0.2);
+      // box-shadow: 0px 0px 20px 20px rgba($color: #ffb200, $alpha: 0.2);
+      position: absolute;
+      top: 50%;
+      content: "";
+    }
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #ffa300;
+      content: "\f185"
+    }
+  }
+  &.on {
+    &:hover {
+      &::before {
+        box-shadow: 
+        0px 0px 10px 10px rgba($color: #a2a8ae, $alpha: 0.4),
+        0px 0px 20px 20px rgba($color: lighten(#a2a8ae, 15%), $alpha: 0.3);
+      }
+    }
+    &::before {
+      box-shadow: 
+        0px 0px 10px 10px rgba($color: #a2a8ae, $alpha: 0.3),
+        0px 0px 20px 20px rgba($color: lighten(#a2a8ae, 15%), $alpha: 0.2);
+      position: absolute;
+      top: 50%;
+      content: "";
+    }
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #a2a8ae;
+      content: "\f186"
+    }
+  }
+}

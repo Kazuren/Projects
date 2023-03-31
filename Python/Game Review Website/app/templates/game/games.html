@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% set active_page = "home" %}
+
+{% block content %}
+  <div class="bg-light p-2 rounded-sm border border-gray">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter"><i class="fas fa-sliders-h"></i> Filters</button>
+
+    {% include 'components/_pagination.html' %}
+    <div class="game-grid">
+      {% for game in games %}
+        {% include 'components/_mediumgamecard.html' %}
+      {% endfor %}
+    </div>
+    {% include 'components/_pagination.html' %}
+
+    <!-- Modal -->
+    <div class="modal left fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="filters" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="filters">Filters</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="filter-form" action="{{ url_for('game.games') }}" method="POST">
+            <div class="modal-body">
+              {{ form.hidden_tag() }}
+              <div class="form-group">
+                <h3 class="h3 d-inline-block">Categories</h3>
+                <div class="custom-control custom-checkbox d-inline-block">
+                  {{ form.filter_by_or(class_="custom-control-input", id="filter_by_or") }}
+                  <label class="custom-control-label" for="filter_by_or">OR</label>
+                  {% for error in form.filter_by_or.errors %}
+                    {% include 'components/_error.html' %}
+                  {% endfor %}
+                </div>
+                <input id="categorySearch" class="form-control searchable mb-2" type="search" placeholder="Search..." aria-label="Search" autocomplete="off">
+                {{ form.categories(parent_class="custom-control custom-checkbox searchable_list") }}
+                {% for error in form.categories.errors %}
+                  {% include 'components/_error.html' %}
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                <h3 class="h3">Developers</h3>
+                <input id="developerSearch" class="form-control searchable mb-2" type="search" placeholder="Search..." aria-label="Search" autocomplete="off">
+                {{ form.developers(parent_class="custom-control custom-checkbox searchable_list") }}
+                {% for error in form.developers.errors %}
+                  {% include 'components/_error.html' %}
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                <h3 class="h3">Platforms</h3>
+                <input id="platformSearch" class="form-control searchable mb-2" type="search" placeholder="Search..." aria-label="Search" autocomplete="off">
+                {{ form.platforms(parent_class="custom-control custom-checkbox searchable_list") }}
+                {% for error in form.platforms.errors %}
+                  {% include 'components/_error.html' %}
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                <h3 class="h3">Sort By</h3>
+                {{ form.sort_by() }}
+                {% for error in form.sort_by.errors %}
+                  {% include 'components/_error.html' %}
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                <h3 class="h3">Release Date</h3>
+                {{ form.release_date() }}
+                {% for error in form.release_date.errors %}
+                  {% include 'components/_error.html' %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              {{ form.submit(class_="btn btn-primary") }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

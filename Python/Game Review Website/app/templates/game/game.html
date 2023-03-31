@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% set active_page = "game" %}
+
+{% block content %}
+  <div class="gamepage-grid">
+    {#}
+    <div class="gamepage-news-wrapper">
+      <div class="gamepage-news bg-light p-2 rounded-sm border border-gray">
+        <h2 class="game-news-title">Recent news</h2>
+        {% for new in feed %}
+          <div class="news-article">
+            <div class="news-header mb-2">
+              <a href="{{ new.link }}" class="news-link">{{ new.title }}</a>
+              <div class="news-date">{{ moment(new.published, "YYYY-MM-DD HH:mm Z").format('LL') }}</div>
+            </div>
+            <div class="news-description">
+              {{ new.description|safe }}
+            </div>
+          </div>
+      </div>
+    </div>
+    {#}
+    <div class="gamepage-game-wrapper">
+      <div class="gamepage-game">
+        {% include 'components/_mediumgamecard.html' %}
+        <div class="bg-light p-2 rounded-sm d-sm-none border border-gray">
+          <h2 class="game-details-title">Game details</h2>
+          <div class="d-flex flex-column">
+            <div>
+              <span class="text-muted">Developers:</span> 
+              <span class="developers">
+                {% for developer in game.developers %}
+                  <span class="developer">
+                    {{ developer.name }}
+                  </span>
+                {% endfor %}
+              </span>
+            </div>
+            <div>
+              <span class="text-muted">Platforms:</span> 
+              <span class="platforms">
+                {% for platform in game.platforms %}
+                  <span class="platform">
+                    {{ platform.name }}
+                  </span>
+                {% endfor %}
+              </span>
+            </div>
+            <div>
+              <span class="text-muted">Release Date:</span> 
+              <span class="release-date">{{ moment(game.release_date).format('LL') }}</span>
+            </div>
+          </div>
+        </div>
+        {% if form %}
+          <form class="bg-light p-2 rounded-sm border border-gray" action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              {{ form.content(cols=32, rows=4, class_="form-control", placeholder="Write a review...", id="editor") }}
+            </div>
+            {% for error in form.content.errors %}
+              {% include 'components/_error.html' %}
+            {% endfor %}
+            <div class="form-group text-center">
+              {{ form.rating.label(class_="review-form-rating-label") }}
+              {{ form.rating(id="star-rating", class_="form-control") }}
+              <span class="current-rating">
+                Current rating: <span class="value">{{ game.avg_rating }}</span>
+              </span>
+              <span class="your-rating d-none">
+                Your rating: <span class="value">0</span>&nbsp;
+                <a href="#" class="clear-rating"><i class="fas fa-times-circle"></i></a>
+              </span>
+            </div>
+            {% for error in form.rating.errors %}
+              {% include 'components/_error.html' %}
+            {% endfor %}
+            {{ form.submit(class_="btn btn-outline-primary") }}
+          </form>
+        {% else %}
+          <div class="bg-light rounded-sm p-2 border border-gray">
+            <h2>Your review</h2>
+            {% include 'components/_review.html' %}
+          </div>
+        {% endif %}
+        {#% if followed_reviews|length > 0 %}
+          <div class="review-container">
+            <h4>{{ followed_reviews|length }} people you follow have reviewed this game</h4>
+            {% for review in followed_reviews %}
+              {{ review.author.username }}
+              {% include 'components/_review.html' %}
+            {% endfor %}
+          </div>
+        {% endif %#}
+        <div class="review-container bg-light p-2 rounded-sm border border-gray">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter-reviews"><i class="fas fa-sliders-h"></i> Filters</button>
+          {% include 'components/_pagination.html' %}
+          <div class="reviews-grid">
+            {% for review in reviews %}
+              {% include 'components/_review.html' %}
+            {% endfor %}
+          </div>
+          {% include 'components/_pagination.html' %}
+        </div>
+      </div>
+    </div>
+    <div class="gamepage-side-wrapper">
+      <div class="gamepage-side">
+        <div class="bg-light p-2 rounded-sm d-none d-sm-block border border-gray">
+          <h2 class="game-details-title">Game details</h2>
+          <div class="d-flex flex-column">
+            <div>
+              <span class="text-muted">Developers:</span> 
+              <span class="developers">
+                {% for developer in game.developers %}
+                  <span class="developer">
+                    {{ developer.name }}
+                  </span>
+                {% endfor %}
+              </span>
+            </div>
+            <div>
+              <span class="text-muted">Platforms:</span> 
+              <span class="platforms">
+                {% for platform in game.platforms %}
+                  <span class="platform">
+                    {{ platform.name }}
+                  </span>
+                {% endfor %}
+              </span>
+            </div>
+            <div>
+              <span class="text-muted">Release Date:</span> 
+              <span class="release-date">{{ moment(game.release_date).format('LL') }}</span>
+            </div>
+          </div>
+        </div>
+        {% if game.game_type == "dlc" %}
+          <div class="bg-light p-2 rounded-sm border border-gray">
+            <h2 class="game-related-title">Main game</h2>
+            {% with game = game.game %}
+              {% include 'components/_smallgamecard.html' %}
+            {% endwith %}
+          </div>
+        {% endif %}
+        <div class="bg-light p-2 rounded-sm border border-gray">
+          <h2 class="game-related-title">Downloadable content</h2>
+          <div class="related-games-grid">
+            {% if game.game_type == "dlc" %}
+              {% for dlc in game.game.dlc.all() %}
+                {% if game != dlc %}
+                  {% with game = dlc %}
+                    {% include 'components/_smallgamecard.html' %}
+                  {% endwith %}
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              {% for game in game.dlc.all() %}
+                {% include 'components/_smallgamecard.html' %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="bg-light p-2 rounded-sm border border-gray">
+          <h2 class="game-related-title">Related titles</h2>
+          <div class="related-games-grid">
+            {% for game in game.related_games %}
+              {% include 'components/_smallgamecard.html' %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal left fade" id="filter-reviews" tabindex="-1" role="dialog" aria-labelledby="filters-reviews" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filters-reviews">Filters</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="filter-review-form" action="" method="POST">
+          <div class="modal-body">
+            {{ filter_review_form.hidden_tag() }}
+            <div class="form-group">
+              <h3 class="h3">Sort By</h3>
+              {{ filter_review_form.sort_by() }}
+              {% for error in filter_review_form.sort_by.errors %}
+                {% include 'components/_error.html' %}
+              {% endfor %}
+            </div>
+            <div class="form-group">
+              <h3 class="h3">Date Written</h3>
+              {{ filter_review_form.date() }}
+              {% for error in filter_review_form.date.errors %}
+                {% include 'components/_error.html' %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            {{ filter_review_form.submit_review_filter(class_="btn btn-primary") }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

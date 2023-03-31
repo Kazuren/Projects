@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="revisions">
+    {% for revision in revisions | reverse %}
+      <div class="revision d-flex flex-column overflow-hidden whitespace-no-wrap bg-light position-relative ">
+        <div class="d-flex align-items-center bg-secondary p-2"> <!-- Header -->
+          <h2 class="revision-number-title mb-0 text-body font-weight-bold">{{ loop.revindex }}</h2>
+          <div class="revision-timestamp d-flex align-items-center">{{ moment(revision.timestamp).format('LL') }}</div>
+        </div>
+        <div class="d-flex flex-column flex-wrap bg-light p-2 justify-content-start flex-fill overflow-hidden">
+          <div class="revision-rating d-flex align-items-center overflow-hidden whitespace-normal mb-2">
+            <div class="{% if revision.rating >= 1 %}star-selected{% endif %}"></div>
+            <div class="{% if revision.rating >= 2 %}star-selected{% endif %}"></div>
+            <div class="{% if revision.rating >= 3 %}star-selected{% endif %}"></div>
+            <div class="{% if revision.rating >= 4 %}star-selected{% endif %}"></div>
+            <div class="{% if revision.rating >= 5 %}star-selected{% endif %}"></div>
+          </div>
+          <div class="revision-body"> <!-- Body -->
+            {{ revision.body|safe }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="revision d-flex flex-column overflow-hidden whitespace-no-wrap bg-light position-relative ">
+      <div class="d-flex align-items-center bg-secondary p-2"> <!-- Header -->
+        <h2 class="revision-number-title mb-0 text-body font-weight-bold">0</h2>
+        <div class="revision-timestamp d-flex align-items-center">{{ moment(review.original_timestamp).format('LL') }}</div>
+      </div>
+      <div class="d-flex flex-column flex-wrap bg-light p-2 justify-content-start flex-fill overflow-hidden">
+        <div class="revision-rating d-flex align-items-center overflow-hidden whitespace-normal mb-2">
+          <div class="{% if review.original_rating >= 1 %}star-selected{% endif %}"></div>
+          <div class="{% if review.original_rating >= 2 %}star-selected{% endif %}"></div>
+          <div class="{% if review.original_rating >= 3 %}star-selected{% endif %}"></div>
+          <div class="{% if review.original_rating >= 4 %}star-selected{% endif %}"></div>
+          <div class="{% if review.original_rating >= 5 %}star-selected{% endif %}"></div>
+        </div>
+        <div class="revision-body"> <!-- Body -->
+          {{ review.original_body|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

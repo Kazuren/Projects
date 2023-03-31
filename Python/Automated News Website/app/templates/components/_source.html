@@ -1,0 +1,7 @@
+<a href="{{ url_for('main.source', source_id=source.id) }}" class="source">
+  <div>
+    <span class="name">{{ source.name }}</span>
+    <span class="count">({{ source.articles.count() }})</span>
+  </div>
+  <span class="category">{{ source.category }}</span>
+</a>

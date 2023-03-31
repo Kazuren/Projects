@@ -1,0 +1,16 @@
+<form class="filter-form" action="{{ url_for('main.articles') }}" method="GET">
+  <div class="filter-sources">
+    <h2 class="title">Sources</h2>
+    <input class="searchable" type="search" placeholder="Search..."/>
+    {{ form.sources(parent_class="searchable_list sources-list") }}
+  </div>
+  <div class="filter-categories">
+    <h2 class="title">Categories</h2>
+    {{ form.categories() }}
+  </div>
+  <div class="filter-publication_date">
+    <h2 class="title">Publication Date</h2>
+    {{ form.publication_date() }}
+  </div>
+  <input type="submit" value="Submit" class="input"/>
+</form>

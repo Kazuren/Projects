@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="sources">
+    {% for source in sources %}
+      {% include 'components/_source.html' %}
+    {% endfor %}
+  </div>
+{% endblock %}

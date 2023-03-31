@@ -1,0 +1,80 @@
+<a href="{{ url_for('game.game', slug=game.slug) }}" class="game-card position-relative d-flex flex-column">
+  {% if active_page == "game" %}
+    {% if not current_user.is_anonymous %}
+      <div class="d-inline-block add-category-button-wrapper" >
+        <button class="btn btn-primary btn-sm add-category-button" data-toggle="modal" data-target="#g-{{ game.slug }}">Add a category</button>
+      </div>
+    {% endif %}
+  {% endif %}
+  {% if game.header_image %}
+    <img class="w-100 game-image" src="{{ game.header_image }}"/>
+  {% else %}
+    <img class="w-100 game-image" src="http://via.placeholder.com/460x215"/>
+  {% endif %}
+  <div class="p-2 d-flex flex-column flex-fill justify-content-between position-relative">
+    <div>
+      <h3 class="game-title mb-2">{{ game.title }}</h3>
+      <div>
+        {% for category in game.categories.all() %}
+          <button {% if current_user.is_anonymous %} tabindex="0" data-toggle="popover" data-placement="top" data-content="You need to login to add a category to this game" data-trigger="hover | focus" {% endif %}
+            type="button" 
+            class="rounded-sm btn btn-sm category-button mb-1
+            {% if current_user.is_anonymous %}
+              btn-outline-primary
+            {% else %}
+              category
+              {% if game.is_upvoted(category, current_user) %} btn-primary {% else %} btn-outline-primary {% endif %}
+            {% endif %}
+            "
+            data-game="{{ game.slug }}" 
+            data-id="{{ category.id }}">
+            <span class="pointer-events-none">{{ category.name }}</span><span>:</span>
+            <span class="pointer-events-none count">
+              {{ category.upvote_count(game) }}
+            </span>
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="game-average-rating whitespace-no-wrap">
+        <span>{{ game.avg_rating }}</span>
+        <i class="fas fa-star text-warning"></i>
+      </div>
+      <div class="game-review-count whitespace-no-wrap">
+        <span>{{ game.reviews.count() }}</span>
+        <i class="fas fa-comment"></i>
+      </div>
+    </div>
+  </div>
+</a>
+
+{% if active_page == "game" %}
+  <div class="modal fade" id="g-{{ game.slug }}" tabindex="-1" role="dialog" aria-labelledby="g-{{ game.slug }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="g-{{ game.slug }}">Add a category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% if not current_user.is_anonymous %}
+            {% for category in categories %}
+              <button type="button" class="category d-inline-block rounded-sm btn btn-sm mb-1 {% if game.is_upvoted(category, current_user) %} btn-primary {% else %} btn-outline-primary {% endif %}" data-game="{{ game.slug }}" data-id="{{ category.id }}">
+                <span class="pointer-events-none">{{ category.name }}</span><span>:</span>
+                <span class="pointer-events-none count">
+                  {{ category.upvote_count(game) }}
+                </span>
+              </button>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

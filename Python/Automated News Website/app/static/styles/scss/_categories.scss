@@ -1,0 +1,37 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  justify-content: start;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 2;
+  a {
+    text-decoration: none;
+    color: $body-color;
+    &:hover {
+      color: $link-color;
+    }
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  a.active {
+    color: $link-color;
+  }
+}
+body.nightmode {
+  .categories {
+    a {
+      color: $body-color-nightmode;
+      &:hover {
+        color: $link-color;
+      }
+    }
+    a.active {
+      color: $link-color;
+    }
+  }
+}
