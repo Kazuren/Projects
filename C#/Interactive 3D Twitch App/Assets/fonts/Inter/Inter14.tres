@@ -1,0 +1,18 @@
+[gd_resource type="DynamicFont" load_steps=6 format=2]
+
+[ext_resource path="res://Assets/fonts/Arial/Arial.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/fonts/Segoe UI/Segoe-UI-Symbol.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/Segoe UI/Segoe-UI-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/fonts/Droid Sans/DroidSans.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/fonts/Segoe UI/Segoe-UI-Emoji.ttf" type="DynamicFontData" id=6]
+
+[resource]
+size = 14
+use_mipmaps = true
+use_filter = true
+extra_spacing_bottom = 1
+font_data = ExtResource( 4 )
+fallback/0 = ExtResource( 2 )
+fallback/1 = ExtResource( 6 )
+fallback/2 = ExtResource( 3 )
+fallback/3 = ExtResource( 5 )

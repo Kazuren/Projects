@@ -1,0 +1,18 @@
+[gd_resource type="DynamicFont" load_steps=6 format=2]
+
+[ext_resource path="res://Assets/fonts/Noto/NotoSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/fonts/Arial/Arial.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/fonts/Noto/NotoSansSinhala-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/Segoe UI/Segoe-UI-Symbol.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/fonts/Droid Sans/DroidSans.ttf" type="DynamicFontData" id=5]
+
+[resource]
+size = 13
+use_mipmaps = true
+use_filter = true
+extra_spacing_bottom = 2
+font_data = ExtResource( 1 )
+fallback/0 = ExtResource( 2 )
+fallback/1 = ExtResource( 4 )
+fallback/2 = ExtResource( 5 )
+fallback/3 = ExtResource( 3 )

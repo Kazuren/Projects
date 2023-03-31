@@ -1,0 +1,119 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/fonts/montreal/Montreal16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Twitch/Client/Debugger/Emote/Emote.cs" type="Script" id=2]
+[ext_resource path="res://src/Twitch/Client/Debugger/Emote/Styles/Emote.tres" type="StyleBox" id=3]
+[ext_resource path="res://src/Twitch/Client/Debugger/Emote/Textures/questionmark.png" type="Texture" id=4]
+
+[node name="Emote" type="Panel"]
+margin_right = 480.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 128, 112 )
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 64.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 68.0
+margin_right = 480.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 8.0
+margin_right = 412.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 64, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Kappa"
+valign = 1
+clip_text = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 412.0
+margin_bottom = 54.0
+
+[node name="Provider" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_right = 204.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Provider: Twitch"
+valign = 1
+clip_text = true
+
+[node name="References" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "References: 0"
+valign = 1
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 412.0
+margin_bottom = 79.0
+
+[node name="Frames" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 204.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Frames: -1|-1|-1"
+
+[node name="CurrentFrame" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Current Frame: -1|-1|-1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 83.0
+margin_right = 412.0
+margin_bottom = 104.0
+
+[node name="Length" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_right = 204.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Length (s): -1.000"
+
+[node name="CurrentTime" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Current Time (s): 0.000"

@@ -1,0 +1,244 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/UI/SettingsMenu/SettingsMenu.cs" type="Script" id=1]
+[ext_resource path="res://src/UI/MainMenu/Styles/BackgroundPanel.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/Theme/UI_Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/UI/arrow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/downarrow.png" type="Texture" id=5]
+[ext_resource path="res://Assets/fonts/montreal/Montreal32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/UI/SettingsMenu/Styles/LabelPanel.tres" type="StyleBox" id=7]
+[ext_resource path="res://src/UI/SettingsMenu/Styles/ValuePanel.tres" type="StyleBox" id=8]
+[ext_resource path="res://src/UI/SettingsMenu/Styles/ValuePanelHover.tres" type="StyleBox" id=9]
+
+[node name="SettingsMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 480.0
+margin_top = 270.0
+margin_right = 1440.0
+margin_bottom = 810.0
+rect_min_size = Vector2( 960, 540 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 944.0
+margin_bottom = 524.0
+custom_constants/separation = 16
+
+[node name="Video" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 928.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 6 )
+text = "Video"
+align = 1
+
+[node name="DisplayModeContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 928.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 72 )
+custom_constants/separation = 16
+
+[node name="DisplayModePanel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer"]
+margin_right = 456.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer/DisplayModePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_left = 16
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer/DisplayModePanel/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 456.0
+margin_bottom = 56.0
+text = "Display Mode"
+valign = 1
+
+[node name="DisplayModeOptions" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer"]
+unique_name_in_owner = true
+margin_left = 472.0
+margin_right = 928.0
+margin_bottom = 72.0
+focus_mode = 0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer/DisplayModeOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 16
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/DisplayModeContainer/DisplayModeOptions/MarginContainer"]
+margin_left = 408.0
+margin_top = 20.0
+margin_right = 440.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+mouse_filter = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+flip_h = true
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 928.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 0, 72 )
+custom_constants/separation = 16
+
+[node name="ResolutionPanel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer"]
+margin_right = 456.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_left = 16
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionPanel/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 456.0
+margin_bottom = 56.0
+text = "Resolution"
+valign = 1
+
+[node name="ResolutionOptions" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer"]
+unique_name_in_owner = true
+margin_left = 472.0
+margin_right = 928.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 16
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/ResolutionContainer/ResolutionOptions/MarginContainer"]
+margin_left = 408.0
+margin_top = 20.0
+margin_right = 440.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+mouse_filter = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+flip_h = true
+
+[node name="VsyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 232.0
+margin_right = 928.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 0, 72 )
+custom_constants/separation = 16
+
+[node name="VsyncPanel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer"]
+margin_right = 456.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer/VsyncPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_left = 16
+
+[node name="Vsync" type="Label" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer/VsyncPanel/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 456.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+text = "Vsync"
+valign = 1
+
+[node name="VsyncButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer"]
+unique_name_in_owner = true
+margin_left = 472.0
+margin_right = 928.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "OFF"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer/VsyncButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 11
+custom_constants/margin_right = 16
+custom_constants/margin_left = 16
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer/VsyncButton/MarginContainer"]
+margin_left = 16.0
+margin_top = 20.0
+margin_right = 48.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/VsyncContainer/VsyncButton/MarginContainer"]
+margin_left = 408.0
+margin_top = 20.0
+margin_right = 440.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 418.0
+margin_top = 462.0
+margin_right = 509.0
+margin_bottom = 508.0
+focus_mode = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+custom_colors/font_color_hover = Color( 0.937255, 0.266667, 0.266667, 1 )
+custom_colors/font_color_pressed = Color( 0.937255, 0.266667, 0.266667, 1 )
+text = "Back"
+flat = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Emote/EmoteMaterial.tres" type="Material" id=1]
+[ext_resource path="res://src/Emote/ZeroWidthEmote.cs" type="Script" id=2]
+
+[node name="ZeroWidthEmote" type="Sprite3D"]
+material_override = ExtResource( 1 )
+pixel_size = 0.0007
+script = ExtResource( 2 )

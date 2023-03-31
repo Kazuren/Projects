@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Lollus Stuff/src/Shed.png" type="Texture" id=1]
+[ext_resource path="res://Assets/fonts/montreal/Montreal24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/UI/SwitchSceneMenu/Styles/SceneButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://src/UI/SwitchSceneMenu/Styles/SceneButtonHover.tres" type="StyleBox" id=4]
+[ext_resource path="res://src/UI/SwitchSceneMenu/SceneContainer/SceneContainer.cs" type="Script" id=5]
+
+[node name="SceneContainer" type="VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 166.0
+custom_constants/separation = 0
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+margin_right = 240.0
+margin_bottom = 31.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Shed"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+margin_top = 31.0
+margin_right = 240.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 240, 135 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 240, 135 )
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6

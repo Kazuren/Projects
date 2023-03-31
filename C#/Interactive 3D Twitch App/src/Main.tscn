@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Main.cs" type="Script" id=2]
+[ext_resource path="res://src/Twitch/Client.cs" type="Script" id=3]
+[ext_resource path="res://src/PerformanceDebugger/PerformanceDebugger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/TwitchChat/TwitchChat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Twitch/Client/Debugger/Debugger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/TwitchChat/Debugger/Debugger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Game/PathManager.cs" type="Script" id=10]
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="TwitchClient" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "
+"
+}
+_channel = "quin69"
+
+[node name="PathManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 10 )
+
+[node name="TwitchChatViewport" type="Viewport" parent="."]
+unique_name_in_owner = true
+size = Vector2( 340, 600 )
+transparent_bg = true
+sharpen_intensity = 0.5
+render_target_v_flip = true
+
+[node name="TwitchChat" parent="TwitchChatViewport" instance=ExtResource( 5 )]
+_twitchClientPath = NodePath("../../TwitchClient")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Interface" type="Control" parent="UI"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PerformanceDebugger" parent="UI/Interface" instance=ExtResource( 4 )]
+visible = false
+
+[node name="TwitchClientDebugger" parent="UI/Interface" instance=ExtResource( 6 )]
+visible = false
+_twitchClientPath = NodePath("../../../TwitchClient")
+
+[node name="TwitchChatDebugger" parent="UI/Interface" instance=ExtResource( 8 )]
+visible = false
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.7, 3, -0.45 )
+visible = false
+projection = 1
+size = 2.0
